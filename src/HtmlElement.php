@@ -98,7 +98,7 @@ class HtmlElement {
 	 * @param HtmlElementCollection $collection: The Collection to add
 	 */
 	public function addCollection(HtmlElementCollection $collection) {
-		array_push($this->collections, $collection);
+		$this->innerElements[$collection->name] = $collection;
 	}
 
 	/**
@@ -121,11 +121,6 @@ class HtmlElement {
 	 */
 	public function render(string $language) : string {
 		$html = file_get_contents($this->template);
-
-		foreach ($this->collections as $collection) {
-			$rendered = $collection->render($language);
-			$this->bindParam($collection->name, $rendered);
-		}
 
 		foreach ($this->innerElements as $name => $element) {
 			$search = $this->generateInnerKey($name);
