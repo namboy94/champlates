@@ -23,10 +23,12 @@ namespace chameleon;
 
 /**
  * Class HtmlElement
- * Abstract Class that provides base methods for HTML Element object, which can
+ * Class that provides base methods for HTML Element object, which can
  * be rendered to HTML
  * @package chameleon
  */
-abstract class HtmlElement {
+class HtmlElement {
+
+
 
 }
