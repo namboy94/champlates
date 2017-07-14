@@ -41,6 +41,9 @@ class Dictionary {
 		$crawledTranslations = $this->crawlForTranslations($translationFiles);
 		$languages = $this->determineLanguages($crawledTranslations);
 		$this->translations = $this->readTranslations($languages);
+		if (count($this->translations) === 0) {
+			throw new InvalidArgumentException("No Translations Loaded");
+		}
 
 	}
 
@@ -54,10 +57,19 @@ class Dictionary {
 	 */
 	public function crawlForTranslations($translationFiles) : array {
 
+		// Strip trailing slashes
+		$translationFiles = rtrim($translationFiles, "/");
+
 		if (is_dir($translationFiles)) {
 			$crawled = [];
 			foreach (scandir($translationFiles) as $child) {
-				array_merge($this->crawlForTranslations($child), $crawled);
+				if ($child !== "." && $child !== "..") {
+					$childpath = $translationFiles . "/" . $child;
+
+					$crawled = array_merge(
+						$this->crawlForTranslations($childpath),
+						$crawled);
+				}
 			}
 			return $crawled;
 
@@ -69,7 +81,7 @@ class Dictionary {
 			}
 
 		} else {
-			throw new InvalidArgumentException();
+			throw new InvalidArgumentException("Not a directory or file");
 		}
 	}
 
@@ -83,7 +95,11 @@ class Dictionary {
 	public function determineLanguages($translationFiles) : array {
 		$languages = [];
 		foreach ($translationFiles as $translationFile) {
-			$language = explode("-", $translationFile, 1)[0];
+
+			// Determine the language
+			$language = explode("-", $translationFile)[0];
+			$language = explode("/", $language);
+			$language = $language[count($language) - 1];
 
 			if (array_key_exists($language, $languages)) {
 				array_push($languages[$language], $translationFile);
@@ -115,7 +131,7 @@ class Dictionary {
 
 				foreach (array_keys($json) as $key) {
 					if (array_key_exists($key, $translations[$language])) {
-						throw new InvalidArgumentException();
+						throw new InvalidArgumentException("Duplicate key");
 					}
 				}
 				$translations[$language] += $json;
@@ -167,10 +183,10 @@ class Dictionary {
 
 		$translated = $text;
 		if (!array_key_exists($language, $this->translations)) {
-			throw new InvalidArgumentException();
+			throw new InvalidArgumentException("Language not installed");
 		} else {
 			foreach ($this->translations[$language] as $key => $translation) {
-				$search = str_replace("{KEY}", $key, $keyIdentifier);
+				$search = str_replace("KEY", $key, $keyIdentifier);
 				$translated = str_replace($search, $translation, $translated);
 			}
 			return $translated;
