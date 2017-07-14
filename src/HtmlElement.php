@@ -31,22 +31,28 @@ class HtmlElement {
 
 	/**
 	 * HtmlElement constructor.
-	 * @param string $template: An HTML file that acts as a template for this
+	 * The identifiers are used to identify segments in the template that
+	 * will be filled by strings, other HtmlElements or translated words.
+	 * @param string $template : An HTML file that acts as a template for this
 	 *                          HTML element
-	 * @param Dictionary $dictionary: The dictionary used for translating
+	 * @param Dictionary $dictionary : The dictionary used for translating
 	 *                                words inside this element
-	 * @param string $variableIdentifier: Can be customized to use different
-	 *                                    identifying structures for inner
-	 *                                    variables. The 'VAR' will be replaced
-	 *                                    with the actual variable name
+	 * @param string $paramIdentifier: Identifier for strings to be inserted
+	 * @param string $innerIdentifier: identifier for inner HtmlElements
+	 * @param string $translationIdentifier: Identifier used while translating
+	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(string $template,
 								Dictionary $dictionary,
-								string $variableIdentifier = "@{VAR}") {
+								string $paramIdentifier = "#{KEY}",
+								string $innerIdentifier = "&{KEY}",
+								string $translationIdentifier = "@{KEY}") {
 
 		$this->template = $template;
 		$this->dictionary = $dictionary;
-		$this->variableIdentifier = $variableIdentifier;
+		$this->paramIdentifier = $paramIdentifier;
+		$this->innerIdentifier = $innerIdentifier;
+		$this->translationIdentifier = $translationIdentifier;
 		$this->params = [];
 		$this->innerElements = [];
 	}
@@ -56,7 +62,7 @@ class HtmlElement {
 	 * @param string $name: The Key variable name
 	 * @param string $value: The replacement value
 	 */
-	public function bind_param(string $name, string $value) {
+	public function bindParam(string $name, string $value) {
 		$this->params[$name] = $value;
 	}
 
@@ -64,9 +70,9 @@ class HtmlElement {
 	 * Adds multiple replacement strings like bind_param does
 	 * @param array $params: The parameters consisting of [name => value]
 	 */
-	public function bind_params(array $params) {
+	public function bindParams(array $params) {
 		foreach ($params as $name => $value) {
-			$this->bind_param($name, $value);
+			$this->bindParam($name, $value);
 		}
 	}
 
@@ -77,6 +83,16 @@ class HtmlElement {
 	 */
 	public function addInnerElement(string $name, HtmlElement $element) {
 		$this->innerElements[$name] = $element;
+	}
+
+	/**
+	 * Adds multiple inner Html Elements
+	 * @param array $elements: The elements to add
+	 */
+	public function addInnerElements(array $elements) {
+		foreach ($elements as $name => $element) {
+			$this->addInnerElement($name, $element);
+		}
 	}
 
 	/**
@@ -92,31 +108,43 @@ class HtmlElement {
 
 		foreach ($this->innerElements as $name => $element) {
 			$innerHtml = $element->render($language);
-			$search = $this->generateReplaceKey($name);
+			$search = $this->generateInnerKey($name);
 			$html = str_replace($search, $innerHtml, $html);
 		}
 
 		foreach ($this->params as $name => $value) {
-			$search = $this->generateReplaceKey($name);
+			$search = $this->generateParamKey($name);
 			$html = str_replace($search, $value, $html);
 		}
 
-		return $this->dictionary->translate($html, $language);
+		return $this->dictionary->translate(
+			$html, $language, $this->translationIdentifier);
 	}
 
 	/**
 	 * Generates a string which can be used by str_replace to replace
-	 * variable placeholders
-	 * @param string $name: The name of the key
-	 * @return string: The generated replace key
+	 * variable placeholder string/params
+	 * @param string $name: The name of the param key
+	 * @return string: The generated param replace key
 	 */
-	public function generateReplaceKey(string $name) : string {
-		return str_replace("VAR", $name, $this->variableIdentifier);
+	public function generateParamKey(string $name) : string {
+		return str_replace("KEY", $name, $this->paramIdentifier);
+	}
+
+	/**
+	 * Generates a string which can be used by str_replace to inner
+	 * HtmlElement placeholders.
+	 * @param string $name: The name of the inner element key
+	 * @return string: The generated inner element replace key
+	 */
+	public function generateInnerKey(string $name) : string {
+		return str_replace("KEY", $name, $this->innerIdentifier);
 	}
 
 	/**
 	 * Echoes the HTML element content.
 	 * @param string $language: The language in which to display the page in.
+	 * @codeCoverageIgnore
 	 */
 	public function display(string $language) {
 		echo $this->render($this->render($language));

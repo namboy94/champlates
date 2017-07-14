@@ -113,7 +113,7 @@ class DictionaryTest extends TestCase {
 	 * Tests translating a text using the default key identifier
 	 */
 	public function testTranslatingTextStandard() {
-		$text = "Hi from @HELLO!";
+		$text = "Hi from @{HELLO}!";
 		$this->assertEquals($this->dictionary->translate($text, "en"),
 			"Hi from World!");
 		$this->assertEquals($this->dictionary->translate($text, "de"),

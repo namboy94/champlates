@@ -179,7 +179,7 @@ class Dictionary {
 	 *                                   exist.
 	 */
 	public function translate(
-		string $text, string $language, string $keyIdentifier = "@KEY") {
+		string $text, string $language, string $keyIdentifier = "@{KEY}") {
 
 		$translated = $text;
 		if (!array_key_exists($language, $this->translations)) {
