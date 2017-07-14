@@ -34,9 +34,14 @@ class Dictionary {
 	 * file locations.
 	 * @param string $translationFiles: The source file/directory for the
 	 *                                  translations
+	 * @param string $translationIdentifier: Identifies sections in a string to
+	 *                    translate when using the translate() method. Defaults
+	 *                    to '@{KEY}'. If a custom identifier is set, it must
+	 *                    contain 'KEY'.
 	 * @throws InvalidArgumentException: If there is a problem with the input
 	 */
-	function __construct(string $translationFiles) {
+	function __construct(string $translationFiles,
+						 string $translationIdentifier = "@{KEY}") {
 
 		$crawledTranslations = $this->crawlForTranslations($translationFiles);
 		$languages = $this->determineLanguages($crawledTranslations);
@@ -44,6 +49,11 @@ class Dictionary {
 		if (count($this->translations) === 0) {
 			throw new InvalidArgumentException("No Translations Loaded");
 		}
+		elseif (strpos($translationIdentifier, "KEY") === false) {
+			throw new InvalidArgumentException("No KEY in identifier");
+		}
+
+		$this->translationIdentifier = $translationIdentifier;
 
 	}
 
@@ -172,21 +182,20 @@ class Dictionary {
 	 * keyIdentifier can be used to minimize false positives
 	 * @param string $text: The text to translate
 	 * @param string $language: The language to translate in
-	 * @param string $keyIdentifier: The Key identifier. Defaults to @{KEY}.
-	 *                               The actual key will be replaced with {KEY}
 	 * @return string: The translated string
 	 * @throws InvalidArgumentException: If the language specified does not
 	 *                                   exist.
 	 */
-	public function translate(
-		string $text, string $language, string $keyIdentifier = "@{KEY}") {
+	public function translate(string $text, string $language) {
 
 		$translated = $text;
 		if (!array_key_exists($language, $this->translations)) {
 			throw new InvalidArgumentException("Language not installed");
 		} else {
 			foreach ($this->translations[$language] as $key => $translation) {
-				$search = str_replace("KEY", $key, $keyIdentifier);
+
+				$search =
+					str_replace("KEY", $key, $this->translationIdentifier);
 				$translated = str_replace($search, $translation, $translated);
 			}
 			return $translated;

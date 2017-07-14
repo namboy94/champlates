@@ -39,20 +39,17 @@ class HtmlElement {
 	 *                                words inside this element
 	 * @param string $paramIdentifier: Identifier for strings to be inserted
 	 * @param string $innerIdentifier: identifier for inner HtmlElements
-	 * @param string $translationIdentifier: Identifier used while translating
 	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(string $template,
 								Dictionary $dictionary,
 								string $paramIdentifier = "#{KEY}",
-								string $innerIdentifier = "&{KEY}",
-								string $translationIdentifier = "@{KEY}") {
+								string $innerIdentifier = "&{KEY}") {
 
 		$this->template = $template;
 		$this->dictionary = $dictionary;
 		$this->paramIdentifier = $paramIdentifier;
 		$this->innerIdentifier = $innerIdentifier;
-		$this->translationIdentifier = $translationIdentifier;
 		$this->params = [];
 		$this->innerElements = [];
 	}
@@ -107,8 +104,9 @@ class HtmlElement {
 		$html = file_get_contents($this->template);
 
 		foreach ($this->innerElements as $name => $element) {
-			$innerHtml = $element->render($language);
 			$search = $this->generateInnerKey($name);
+			$innerHtml =
+				($element !== null) ? $element->render($language) : "";
 			$html = str_replace($search, $innerHtml, $html);
 		}
 
@@ -117,8 +115,7 @@ class HtmlElement {
 			$html = str_replace($search, $value, $html);
 		}
 
-		return $this->dictionary->translate(
-			$html, $language, $this->translationIdentifier);
+		return $this->dictionary->translate($html, $language);
 	}
 
 	/**

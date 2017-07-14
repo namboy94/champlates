@@ -28,6 +28,7 @@ use PHPUnit\Framework\TestCase;
  * @property Dictionary dictionary: The dictionary used in testing
  * @property string translationDir: The directory containing translations
  *                                  for testing
+ * @property string validDir: The directory containing valid translation files
  */
 class DictionaryTest extends TestCase {
 
@@ -37,8 +38,8 @@ class DictionaryTest extends TestCase {
 	public function setUp() {
 		parent::setUp();
 		$this->translationDir = __DIR__ . "/resources/translations/";
-		$this->dictionary =
-			new Dictionary($this->translationDir . "valid");
+		$this->validDir = $this->translationDir . "valid";
+		$this->dictionary = new Dictionary($this->validDir);
 	}
 
 	/**
@@ -87,6 +88,18 @@ class DictionaryTest extends TestCase {
 	}
 
 	/**
+	 * Tests setting a bad translation identifier (without KEY in it).
+	 */
+	public function testBadCustomTranslationIdentifiers() {
+
+		try {
+			new Dictionary($this->validDir, "@{K}");
+		} catch (InvalidArgumentException $e) {
+			$this->assertEquals($e->getMessage(), "No KEY in identifier");
+		}
+	}
+
+	/**
 	 * Tests the Dictionary's get() method
 	 */
 	public function testGettingTranslatedKeys() {
@@ -124,13 +137,12 @@ class DictionaryTest extends TestCase {
 	 * Tests translating a text using a custom key identifier
 	 */
 	public function testTranslatingTextStandardCustom() {
+
+		$dict = new Dictionary($this->validDir, "{*KEY*}");
+
 		$text = "Hi from {*HELLO*}!";
-		$this->assertEquals(
-			$this->dictionary->translate($text, "en", "{*KEY*}"),
-			"Hi from World!");
-		$this->assertEquals(
-			$this->dictionary->translate($text, "de", "{*KEY*}"),
-			"Hi from Welt!");
+		$this->assertEquals($dict->translate($text, "en"), "Hi from World!");
+		$this->assertEquals($dict->translate($text, "de"), "Hi from Welt!");
 	}
 
 	/**
