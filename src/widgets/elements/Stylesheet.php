@@ -7,9 +7,23 @@
  */
 
 namespace chameleon_widgets;
+use chameleon\HtmlElement;
 
 
-class Stylesheet
-{
+/**
+ * Class Stylesheet
+ * Light wrapper around a stylesheet for better integration with other
+ * HTML Elements
+ * @package chameleon_widgets
+ */
+class Stylesheet extends HtmlElement {
 
+	/**
+	 * Stylesheet constructor.
+	 * @param string $href: The location of the CSS file
+	 */
+	public function __construct(string $href) {
+		parent::__construct(__DIR__ . "/templates/stylesheet.html", null);
+		$this->bindParam("HREF", $href);
+	}
 }

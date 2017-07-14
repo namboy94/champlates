@@ -20,15 +20,13 @@ class NavbarLogo extends HtmlElement {
 
 	/**
 	 * NavbarLogo constructor.
-	 * @param Dictionary $dictionary: The dictionary used to translate text
 	 * @param string $logoFile: The path to the logo's file
 	 * @param string $logoLink: The URL that the logo points to
 	 */
-	public function __construct(Dictionary $dictionary,
-								string $logoFile,
+	public function __construct(string $logoFile,
 								string $logoLink) {
 		$template = __DIR__ . "/templates/navbar_logo.html";
-		parent::__construct($template, $dictionary);
+		parent::__construct($template, null);
 		$this->bindParams(["FILE" => $logoFile, "LINK" => $logoLink]);
 	}
 

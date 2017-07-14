@@ -42,7 +42,7 @@ class HtmlElement {
 	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(string $template,
-								Dictionary $dictionary,
+								? Dictionary $dictionary,
 								string $paramIdentifier = "#{KEY}",
 								string $innerIdentifier = "&{KEY}") {
 

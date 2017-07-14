@@ -37,22 +37,8 @@ class NavbarDropdown extends HtmlElement {
 		parent::__construct($template, $dictionary);
 		$this ->entries = $entries;
 		$this->bindParam("TITLE", $title);
+		$this->addCollectionFromArray("ENTRIES", $entries);
 	}
 
-	/**
-	 * Pre-renders the internal entries
-	 * @param string $language: The language in which to render
-	 * @return string: The rendered HTML string
-	 */
-	public function render(string $language): string {
-
-		$content = "";
-		foreach ($this->entries as $entry) {
-			$content .= $entry->render($language);
-		}
-		$this->bindParam("ENTRIES", $content);
-
-		return parent::render($language);
-	}
 
 }
