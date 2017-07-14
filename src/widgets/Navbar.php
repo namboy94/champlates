@@ -9,7 +9,6 @@
 namespace chameleon_widgets;
 use chameleon\Dictionary;
 use chameleon\HtmlElement;
-use chameleon\Hyperlink;
 
 /**
  * Class Navbar
@@ -44,8 +43,7 @@ class Navbar extends HtmlElement {
 								array $rightElements = [],
 								? NavbarLogo $logo = null){
 
-		$template = __DIR__ . "/templates/navbar.html";
-		parent::__construct($template, $dictionary);
+		parent::__construct(__DIR__ . "/templates/navbar.html", $dictionary);
 		$this->bindParams(["TITLE" => $title->text, "LINK" => $title->link]);
 		$this->addInnerElement("LOGO", $logo);
 		$this->rightElements = $rightElements;

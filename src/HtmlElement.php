@@ -52,6 +52,7 @@ class HtmlElement {
 		$this->innerIdentifier = $innerIdentifier;
 		$this->params = [];
 		$this->innerElements = [];
+		$this->collections = [];
 	}
 
 	/**
@@ -93,6 +94,24 @@ class HtmlElement {
 	}
 
 	/**
+	 * Adds a HtmlElementCollection to the HtmlElement
+	 * @param HtmlElementCollection $collection: The Collection to add
+	 */
+	public function addCollection(HtmlElementCollection $collection) {
+		array_push($this->collections, $collection);
+	}
+
+	/**
+	 * Creates a HtmlElementCollection from an array and adds it
+	 * @param string $name: The name of the collection
+	 * @param array $elements: The elements in the collection
+	 */
+	public function addCollectionFromArray(string $name, array $elements) {
+		$collection = new HtmlElementCollection($name, $elements);
+		$this->addCollection($collection);
+	}
+
+	/**
 	 * Renders the HTML Element to an HTML string. All inner HTML Elements
 	 * are inserted as well as parameter string and then translated into the
 	 * specified language
@@ -102,6 +121,11 @@ class HtmlElement {
 	 */
 	public function render(string $language) : string {
 		$html = file_get_contents($this->template);
+
+		foreach ($this->collections as $collection) {
+			$rendered = $collection->render($language);
+			$this->bindParam($collection->name, $rendered);
+		}
 
 		foreach ($this->innerElements as $name => $element) {
 			$search = $this->generateInnerKey($name);
@@ -115,7 +139,11 @@ class HtmlElement {
 			$html = str_replace($search, $value, $html);
 		}
 
-		return $this->dictionary->translate($html, $language);
+		if ($this->dictionary === null) {
+			return $html;
+		} else {
+			return $this->dictionary->translate($html, $language);
+		}
 	}
 
 	/**

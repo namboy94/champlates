@@ -7,7 +7,7 @@
  * Time: 3:00 PM
  */
 
-namespace chameleon;
+namespace chameleon_widgets;
 
 
 /**

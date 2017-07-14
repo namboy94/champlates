@@ -9,7 +9,6 @@
 namespace chameleon_widgets;
 use chameleon\Dictionary;
 use chameleon\HtmlElement;
-use chameleon\Hyperlink;
 
 
 /**
