@@ -26,13 +26,13 @@ class Header extends HtmlElement {
 	 * @param array $scripts: The scripts executed at the start of the page
 	 * @param array $stylesheets: The stylesheets included in this page
 	 * @param array $googleFonts: The google fonts included in this page
+	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(Dictionary $dictionary,
 								string $title,
 								string $icon,
-								array $scripts = [new BootstrapScript()],
-								array $stylesheets =
-								[new BootstrapStylesheet()],
+								array $scripts = [],
+								array $stylesheets = [],
 								array $googleFonts = []) {
 
 		parent::__construct(__DIR__ . "/templates/header.html", $dictionary);

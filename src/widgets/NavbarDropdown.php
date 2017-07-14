@@ -35,7 +35,7 @@ class NavbarDropdown extends HtmlElement {
 
 		$template = __DIR__ . "/templates/navbar_dropdown.html";
 		parent::__construct($template, $dictionary);
-		$this ->entries = $entries;
+		$this->entries = $entries;
 		$this->bindParam("TITLE", $title);
 		$this->addCollectionFromArray("ENTRIES", $entries);
 	}

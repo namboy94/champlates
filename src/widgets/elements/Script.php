@@ -23,7 +23,7 @@ class Script extends HtmlElement {
 	 * @param string $script: The script to execute. Will only be wrapped
 	 *                        in <script> tags.
 	 */
-	public function __construct(string $script){
+	public function __construct(string $script) {
 		parent::__construct(__DIR__ . "/templates/script.html", null);
 		$this->bindParam("SCRIPT", $script);
 	}

@@ -24,12 +24,13 @@ class Navbar extends HtmlElement {
 	 * @param array $leftElements: The left elements of the navbar.
 	 * @param array $rightElements: The right elements of the navbar.
 	 * @param NavbarLogo|null $logo: The logo of the navbar. Can be left empty.
+	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(Dictionary $dictionary,
 								Hyperlink $title,
 								array $leftElements = [],
 								array $rightElements = [],
-								? NavbarLogo $logo = null){
+								? NavbarLogo $logo = null) {
 
 		parent::__construct(__DIR__ . "/templates/navbar.html", $dictionary);
 		$this->bindParams(["TITLE" => $title->text, "LINK" => $title->link]);

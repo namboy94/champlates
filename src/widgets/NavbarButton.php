@@ -26,7 +26,7 @@ class NavbarButton extends HtmlElement {
 	 */
 	public function __construct(Dictionary $dictionary,
 								Hyperlink $title,
-								bool $isSelected){
+								bool $isSelected) {
 		$template = __DIR__ . "/templates/navbar_button.html";
 		parent::__construct($template, $dictionary);
 

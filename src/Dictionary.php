@@ -41,15 +41,14 @@ class Dictionary {
 	 * @throws InvalidArgumentException: If there is a problem with the input
 	 */
 	function __construct(string $translationFiles,
-						 string $translationIdentifier = "@{KEY}") {
+						string $translationIdentifier = "@{KEY}") {
 
 		$crawledTranslations = $this->crawlForTranslations($translationFiles);
 		$languages = $this->determineLanguages($crawledTranslations);
 		$this->translations = $this->readTranslations($languages);
 		if (count($this->translations) === 0) {
 			throw new InvalidArgumentException("No Translations Loaded");
-		}
-		elseif (strpos($translationIdentifier, "KEY") === false) {
+		} elseif (strpos($translationIdentifier, "KEY") === false) {
 			throw new InvalidArgumentException("No KEY in identifier");
 		}
 
