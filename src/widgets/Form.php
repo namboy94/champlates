@@ -19,20 +19,32 @@
  */
 
 namespace chameleon_widgets;
+use chameleon\Dictionary;
+use chameleon\HtmlElement;
 
 
 /**
- * Class ReCaptchaScript
- * Script that integrates Google's FormReCaptcha
+ * Class Form
+ * A Form containing various Form elements. The form will perform a POST
+ * to the target.
  * @package chameleon_widgets
  */
-class ReCaptchaScript extends RemoteScript {
+class Form extends HtmlElement {
 
 	/**
-	 * ReCaptchaScript constructor.
+	 * Form constructor.
+	 * @param Dictionary $dictionary: The dictionary used to translate text
+	 * @param string $title: The title of the form
+	 * @param string $target: The target endpoint of the form
+	 * @param array $formElements: The elements included in this form
 	 */
-	public function __construct() {
-		parent::__construct("https://www.google.com/recaptcha/api.js");
+	public function __construct(Dictionary $dictionary,
+								string $title,
+								string $target,
+								array $formElements) {
+		parent::__construct(__DIR__ . "/templates/form.html", $dictionary);
+		$this->bindParams(["TITLE" => $title, "TARGET" => $target]);
+		$this->addCollectionFromArray("ELEMENTS", $formElements);
 	}
 
 }

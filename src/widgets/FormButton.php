@@ -19,20 +19,25 @@
  */
 
 namespace chameleon_widgets;
+use chameleon\Dictionary;
+use chameleon\HtmlElement;
 
 
 /**
- * Class ReCaptchaScript
- * Script that integrates Google's FormReCaptcha
+ * Class FormButton
+ * A Simple Confirmation Button for a Form
  * @package chameleon_widgets
  */
-class ReCaptchaScript extends RemoteScript {
+class FormButton extends HtmlElement {
 
 	/**
-	 * ReCaptchaScript constructor.
+	 * FormButton constructor.
+	 * @param Dictionary $dictionary: The dictionary for translation purposes
+	 * @param string $title: The title of the button
 	 */
-	public function __construct() {
-		parent::__construct("https://www.google.com/recaptcha/api.js");
+	public function __construct(Dictionary $dictionary, string $title) {
+		$template = __DIR__ . "/templates/form_button.html";
+		parent::__construct($template, $dictionary);
 	}
 
 }

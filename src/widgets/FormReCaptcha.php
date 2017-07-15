@@ -19,20 +19,23 @@
  */
 
 namespace chameleon_widgets;
+use chameleon\HtmlElement;
 
 
 /**
- * Class ReCaptchaScript
- * Script that integrates Google's FormReCaptcha
+ * Class FormReCaptcha
+ * Models a ReCaptcha Prompt inside a Form
  * @package chameleon_widgets
  */
-class ReCaptchaScript extends RemoteScript {
+class FormReCaptcha extends HtmlElement {
 
 	/**
-	 * ReCaptchaScript constructor.
+	 * FormReCaptcha constructor.
+	 * @param string $siteKey: The ReCaptcha sitekey
 	 */
-	public function __construct() {
-		parent::__construct("https://www.google.com/recaptcha/api.js");
+	public function __construct(string $siteKey) {
+		parent::__construct(__DIR__ . "/templates/form_recaptcha.html", null);
+		$this->bindParam("SITEKEY", $siteKey);
 	}
 
 }
