@@ -156,4 +156,14 @@ class DictionaryTest extends TestCase {
 			$this->assertEquals($e->getMessage(), "Language not installed");
 		}
 	}
+
+	/**
+	 * Tests generating a dictionary from a directory with
+	 * hyphens in it.
+	 */
+	public function testGeneratingFromDirectoryWithHyphen() {
+		$dict = new Dictionary(__DIR__ .
+			"/resources/translations/valid-hyphen");
+		$this->assertEquals($dict->translations["en"]["TEST"], "test");
+	}
 }

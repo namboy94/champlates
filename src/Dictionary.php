@@ -106,9 +106,9 @@ class Dictionary {
 		foreach ($translationFiles as $translationFile) {
 
 			// Determine the language
-			$language = explode("-", $translationFile)[0];
-			$language = explode("/", $language);
+			$language = explode("/", $translationFile);
 			$language = $language[count($language) - 1];
+			$language = explode("-", $language)[0];
 
 			if (array_key_exists($language, $languages)) {
 				array_push($languages[$language], $translationFile);
