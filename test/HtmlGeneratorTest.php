@@ -48,5 +48,51 @@ class HtmlGeneratorTest extends TestCase {
 		$this->assertEquals($en, $gen->render("en"));
 		$this->assertEquals($de, $gen->render("de"));
 	}
-	
+
+	/**
+	 * Tests if rendering with a null Dictionary ignores
+	 * any strings to translate
+	 */
+	public function testRenderingWithNullDictionary() {
+		$template = __DIR__ . "/resources/html/nulldict.html";
+		$gen = new HtmlElement($template, null);
+		$this->assertEquals($gen->render("en"), file_get_contents($template));
+	}
+
+	/**
+	 * Tests rendering a null inner element
+	 */
+	public function testRenderingNullInnerElement() {
+		$dict = new Dictionary(__DIR__ . "/resources/translations/valid");
+		$template = __DIR__ . "/resources/html/nullelement.html";
+		$render = file_get_contents(__DIR__ .
+			"/resources/html/nullelement-render.html");
+
+		$gen = new HtmlElement($template, $dict);
+		$gen->addInnerElement("NULL", null);
+
+		$this->assertEquals($gen->render("en"), $render);
+	}
+
+	/**
+	 * Tests rendering a HTML Element Collection
+	 */
+	public function testRenderingCollections() {
+		$dict = new Dictionary(__DIR__ . "/resources/translations/valid");
+		$template = __DIR__ . "/resources/html/collection.html";
+		$innerTemplate = __DIR__ . "/resources/html/inner.html";
+		$render = file_get_contents(__DIR__ .
+			"/resources/html/collection-render.html");
+
+		$inner = new HtmlElement($innerTemplate, $dict);
+
+		$gen = new HtmlElement($template, $dict);
+		$gen->addCollectionFromArray(
+			"COLLECTION",
+			[$inner, $inner]
+		);
+
+		$this->assertEquals($render, $gen->render("en"));
+	}
+
 }

@@ -76,10 +76,11 @@ class HtmlElement {
 
 	/**
 	 * Adds a child HtmlElement and defines where it will be inserted
+	 * Null Elements will replace with an empty string "".
 	 * @param string $name: The identifier key for the element
-	 * @param HtmlElement $element: The element itself
+	 * @param HtmlElement|null $element: The element itself
 	 */
-	public function addInnerElement(string $name, HtmlElement $element) {
+	public function addInnerElement(string $name, ? HtmlElement $element) {
 		$this->innerElements[$name] = $element;
 	}
 

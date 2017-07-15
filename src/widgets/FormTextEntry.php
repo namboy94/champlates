@@ -37,6 +37,7 @@ class FormTextEntry extends HtmlElement {
 	 * @param string $type: The type of the entry data
 	 * @param string $title: The title of the entry
 	 * @param string $placeholder: A placeholder for the text field
+	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(Dictionary $dictionary,
 								string $id,

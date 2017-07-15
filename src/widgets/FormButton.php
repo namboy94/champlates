@@ -33,11 +33,11 @@ class FormButton extends HtmlElement {
 	/**
 	 * FormButton constructor.
 	 * @param Dictionary $dictionary: The dictionary for translation purposes
-	 * @param string $title: The title of the button
+	 * @param string $text: The text displayed on the button
 	 */
-	public function __construct(Dictionary $dictionary, string $title) {
+	public function __construct(Dictionary $dictionary, string $text) {
 		$template = __DIR__ . "/templates/form_button.html";
 		parent::__construct($template, $dictionary);
+		$this->bindParam("TEXT", $text);
 	}
-
 }
