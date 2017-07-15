@@ -167,7 +167,7 @@ class HtmlElement {
 	 * @codeCoverageIgnore
 	 */
 	public function display(string $language) {
-		echo $this->render($this->render($language));
+		echo $this->render($language);
 	}
 
 }
