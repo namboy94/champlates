@@ -74,6 +74,7 @@ class HtmlElement extends HtmlTemplate {
 	/**
 	 * Changes the Html Element's ID
 	 * @param string|null $id: The new ID
+	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
 	public function changeId(? string $id) {
 		$this->params["ID"] = ($id === null) ? "" : " id=\"" . $id . "\"";
