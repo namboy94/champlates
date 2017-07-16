@@ -35,20 +35,18 @@ class Header extends HtmlTemplate {
 	 * @param string $icon: The icon of the web page
 	 * @param array $scripts: The scripts executed at the start of the page
 	 * @param array $stylesheets: The stylesheets included in this page
-	 * @param array $googleFonts: The google fonts included in this page
 	 * @SuppressWarnings functionMaxParameters
+	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(Dictionary $dictionary,
+	public function __construct(? Dictionary $dictionary,
 								string $title,
 								string $icon,
 								array $scripts = [],
-								array $stylesheets = [],
-								array $googleFonts = []) {
+								array $stylesheets = []) {
 
 		parent::__construct(__DIR__ . "/templates/header.html", $dictionary);
 		$this->bindParams(["TITLE" => $title, "ICON" => $icon]);
 		$this->addCollectionFromArray("SCRIPTS", $scripts);
 		$this->addCollectionFromArray("STYLESHEETS", $stylesheets);
-		$this->addCollectionFromArray("GOOGLEFONTS", $googleFonts);
 	}
 }

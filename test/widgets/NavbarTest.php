@@ -27,4 +27,8 @@ use PHPUnit\Framework\TestCase;
  */
 class NavbarTest extends TestCase {
 
+	public function test() {
+		$this->assertTrue(true);
+	}
+
 }

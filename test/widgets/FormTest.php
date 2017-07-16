@@ -19,6 +19,8 @@
  */
 
 use PHPUnit\Framework\TestCase;
+use chameleon\Form;
+use chameleon\FormButton;
 
 
 /**
@@ -26,5 +28,15 @@ use PHPUnit\Framework\TestCase;
  * Tests the various Form* classes
  */
 class FormTest extends TestCase {
+
+	/**
+	 * Tests generating a very basic Form
+	 */
+	public function testGeneratingSimpleForm() {
+		$button = new FormButton(null, "BUTTON");
+		$form = new Form(null, "Title", "target.php", [$button]);
+		$this->assertEquals($form->render("en"),
+			file_get_contents(__DIR__ . "/results/simple_form.html"));
+	}
 
 }

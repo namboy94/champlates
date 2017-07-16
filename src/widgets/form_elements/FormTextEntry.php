@@ -37,8 +37,9 @@ class FormTextEntry extends HtmlTemplate {
 	 * @param string $title: The title of the entry
 	 * @param string $placeholder: A placeholder for the text field
 	 * @SuppressWarnings functionMaxParameters
+	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(Dictionary $dictionary,
+	public function __construct(? Dictionary $dictionary,
 								string $id,
 								string $name,
 								string $type,

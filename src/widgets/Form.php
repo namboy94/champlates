@@ -35,8 +35,9 @@ class Form extends HtmlTemplate {
 	 * @param string $title: The title of the form
 	 * @param string $target: The target endpoint of the form
 	 * @param array $formElements: The elements included in this form
+	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(Dictionary $dictionary,
+	public function __construct(? Dictionary $dictionary,
 								string $title,
 								string $target,
 								array $formElements) {

@@ -18,13 +18,38 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+use chameleon\Script;
 use PHPUnit\Framework\TestCase;
-
+use chameleon\Header;
+use chameleon\BootstrapScript;
+use chameleon\BootstrapStyleSheet;
+use chameleon\GoogleAnalyticsScript;
+use chameleon\ReCaptchaScript;
+use chameleon\GoogleFont;
 
 /**
  * Class HeaderTest
  * Tests Header-related functionality
  */
 class HeaderTest extends TestCase {
+
+	public function testCreatingHeader() {
+
+		$bootstrapJs = new BootstrapScript();
+		$bootstrapCss = new BootstrapStyleSheet();
+
+		$analytics = new GoogleAnalyticsScript("ANA");
+		$recaptcha = new ReCaptchaScript();
+		$font = new GoogleFont("Font");
+
+		$script = new Script("AAA");
+
+		$header = new Header(null, "Title", "iconfile",
+			[$bootstrapJs, $analytics, $recaptcha, $script],
+			[$bootstrapCss, $font]);
+
+		$this->assertEquals($header->render(""), file_get_contents(__DIR__ .
+			"/results/header.html"));
+	}
 
 }

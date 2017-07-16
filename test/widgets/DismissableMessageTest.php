@@ -19,6 +19,7 @@
  */
 
 use PHPUnit\Framework\TestCase;
+use chameleon\DismissableMessage;
 
 
 /**
@@ -27,4 +28,28 @@ use PHPUnit\Framework\TestCase;
  */
 class DismissableMessageTest extends TestCase {
 
+	/**
+	 * Tests generating Dismissable messages of every type
+	 */
+	public function testGeneratingDismissableMessage() {
+
+		foreach (["danger"] as $type) {
+			$msg = new DismissableMessage(null, $type, "A", "B");
+			$this->assertEquals($msg->render("en"),
+				file_get_contents(__DIR__ .
+				"/results/dismissable_" . $type . ".html"));
+		}
+	}
+
+	/**
+	 * Tests generating an invalid Dismissable Message
+	 */
+	public function testGeneratingInvalidDismissableMessage() {
+		try {
+			new DismissableMessage(null, "blargh", "A", "B");
+			$this->fail();
+		} catch (InvalidArgumentException $e) {
+			$this->assertEquals($e->getMessage(), "Invalid message type");
+		}
+	}
 }

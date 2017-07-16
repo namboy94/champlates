@@ -33,8 +33,9 @@ class NavbarButton extends HtmlTemplate {
 	 * @param Dictionary $dictionary: The dictionary used for translation
 	 * @param Hyperlink $title: The title of the button
 	 * @param bool $isSelected: The target link of the button
+	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(Dictionary $dictionary,
+	public function __construct(? Dictionary $dictionary,
 								Hyperlink $title,
 								bool $isSelected) {
 		$template = __DIR__ . "/templates/navbar_button.html";

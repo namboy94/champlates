@@ -33,8 +33,9 @@ class TitleJumboTron extends HtmlTemplate {
 	 * @param Dictionary $dictionary: The Dictionary to use for translations
 	 * @param string $title: The title of the jumbotron
 	 * @param null|string $image: The image displayed as background
+	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(Dictionary $dictionary,
+	public function __construct(? Dictionary $dictionary,
 								string $title,
 								? string $image = null) {
 
