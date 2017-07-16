@@ -42,8 +42,7 @@ class SignupForm extends Form {
 		? string $recaptchaSiteKey
 	) {
 		
-		$username = $username = new FormTextEntry(
-			$dictionary,
+		$username = $username = new FormTextEntry( $dictionary,
 			"signup_username",
 			"signupUsername",
 			"text",
@@ -51,8 +50,7 @@ class SignupForm extends Form {
 			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}"
 		);
 		
-		$email = new FormTextEntry(
-			$dictionary,
+		$email = new FormTextEntry( $dictionary,
 			"signup_email",
 			"signupEmail",
 			"text",
@@ -60,8 +58,7 @@ class SignupForm extends Form {
 			"@{SIGNUPFORM_EMAIL_PLACEHOLDER}"
 		);
 
-		$password = new FormTextEntry(
-			$dictionary,
+		$password = new FormTextEntry( $dictionary,
 			"signup_password",
 			"signupPassword",
 			"password",
@@ -69,8 +66,7 @@ class SignupForm extends Form {
 			"@{SIGNUPFORM_PASSWORD_PLACEHOLDER}"
 		);
 
-		$passwordConfirm = new FormTextEntry(
-			$dictionary,
+		$passwordConfirm = new FormTextEntry( $dictionary,
 			"signup_password_confirm",
 			"signupPasswordConfirm",
 			"password",

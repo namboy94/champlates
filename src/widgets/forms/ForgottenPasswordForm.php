@@ -41,8 +41,7 @@ class ForgottenPasswordForm extends Form {
 		string $target, 
 		? string $recaptchaSiteKey) {
 
-		$elements = [new FormTextEntry(
-			$dictionary,
+		$elements = [new FormTextEntry( $dictionary,
 			"forgotpass_email",
 			"forgotpassEmail",
 			"text",
@@ -57,7 +56,7 @@ class ForgottenPasswordForm extends Form {
 		array_push($elements,
 			new FormButton($dictionary, "@{FORGOTPASSFORM_CONFIRM_TITLE}"));
 		
-		parent::__construct($dictionary, $title, $target, []);
+		parent::__construct($dictionary, $title, $target, $elements);
 	}
 
 }

@@ -20,6 +20,9 @@
 
 use PHPUnit\Framework\TestCase;
 use chameleon\Form;
+use chameleon\LoginForm;
+use chameleon\SignupForm;
+use chameleon\ForgottenPasswordForm;
 use chameleon\FormButton;
 
 
@@ -39,4 +42,48 @@ class FormTest extends TestCase {
 			file_get_contents(__DIR__ . "/results/simple_form.html"));
 	}
 
+	/**
+	 * Tests generating a Login Form
+	 */
+	public function testLoginForm() {
+		$form = new LoginForm(null, "Login", "login.php");
+		$result = __DIR__ . "/results/login_form.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests generating a signup form
+	 */
+	public function testSignupForm() {
+		$form = new SignupForm(null, "Signup", "signup.php", null);
+		$result = __DIR__ . "/results/signup_form.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests generating a signup form with Recaptcha enabled
+	 */
+	public function testSignupFormWithRecaptcha() {
+		$form = new SignupForm(null, "Signup", "signup.php", "AAA");
+		$result = __DIR__ . "/results/signup_form_recaptcha.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests generating a forgotten password form
+	 */
+	public function testForgottenPasswordForm() {
+		$form = new ForgottenPasswordForm(null, "Forgot", "forgot.php", null);
+		$result = __DIR__ . "/results/forgot_form.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests generating a forgotten password form with recaptcha enabled
+	 */
+	public function testForgottenPasswordFormWithRecaptcha() {
+		$form = new ForgottenPasswordForm(null, "Forgot", "forgot.php", "AAA");
+		$result = __DIR__ . "/results/forgot_form_recaptcha.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
 }

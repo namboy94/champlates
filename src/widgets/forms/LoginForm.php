@@ -40,8 +40,7 @@ class LoginForm extends Form {
 		$target
 	) {
 
-		$username = new FormTextEntry(
-			$dictionary,
+		$username = new FormTextEntry( $dictionary,
 			"login_username",
 			"loginUsername",
 			"text",
@@ -49,8 +48,7 @@ class LoginForm extends Form {
 			"@{LOGINFORM_USERNAME_PLACEHOLDER}"
 		);
 
-		$password = new FormTextEntry(
-			$dictionary,
+		$password = new FormTextEntry( $dictionary,
 			"login_password",
 			"loginPassword",
 			"password",
@@ -60,10 +58,7 @@ class LoginForm extends Form {
 
 		$confirm = new FormButton($dictionary, "@{LOGINFORM_CONFIRM_TITLE}");
 
-		parent::__construct(
-			$dictionary,
-			$title,
-			$target,
+		parent::__construct($dictionary, $title, $target,
 			[$username, $password, $confirm]);
 	}
 
