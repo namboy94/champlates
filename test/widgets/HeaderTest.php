@@ -33,6 +33,10 @@ use chameleon\GoogleFont;
  */
 class HeaderTest extends TestCase {
 
+	/**
+	 * Tries creating a header with all the pre-defined scripts
+	 * and stylesheets
+	 */
 	public function testCreatingHeader() {
 
 		$bootstrapJs = new BootstrapScript();

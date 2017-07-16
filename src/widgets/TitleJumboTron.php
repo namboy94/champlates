@@ -45,14 +45,12 @@ class TitleJumboTron extends HtmlTemplate {
 		if ($image === null) {
 			$imageStyle = "";
 		} else {
-			$imageStyle = "style=\"background-image: url(" . $image .
+			$imageStyle = " style=\"background-image: url(" . $image .
 				"); background-size: cover;\"";
 		}
 
 		$this->bindParams(
 			["BACKGROUND_IMAGE" => $imageStyle, "TITLE" => $title]
 		);
-
 	}
-
 }

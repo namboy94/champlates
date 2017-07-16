@@ -47,7 +47,7 @@ class HtmlElement extends HtmlTemplate {
 								array $classes = [],
 								? string $id = null) {
 
-		parent::__construct(__DIR__ . "/html_element.html", null);
+		parent::__construct(__DIR__ . "/templates/html_element.html", null);
 
 		$this->addClasses($classes);
 		$this->bindParam("TAG", $tag);
