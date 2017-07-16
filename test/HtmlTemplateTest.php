@@ -25,12 +25,12 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class HtmlTemplateTest
- * Tests the generation of various HTML Elements
+ * Tests the generation of various HTML Templates
  */
 class HtmlTemplateTest extends TestCase {
 
 	/**
-	 * Tests generating an HTML Element in en and de languages
+	 * Tests generating an HTML Template in en and de languages
 	 */
 	public function testGeneratingHtml() {
 		$dict = new Dictionary(__DIR__ . "/resources/translations/valid");
@@ -40,7 +40,7 @@ class HtmlTemplateTest extends TestCase {
 
 		$gen->bindParams(
 			["PLACEHOLDER" => "<h1>This was a placeholder</h1>"]);
-		$gen->addInnerElements(["INNER" => $inner]);
+		$gen->addInnerTemplates(["INNER" => $inner]);
 
 		$en = file_get_contents(__DIR__ . "/resources/html/rendered-en.html");
 		$de = file_get_contents(__DIR__ . "/resources/html/rendered-de.html");
@@ -60,22 +60,22 @@ class HtmlTemplateTest extends TestCase {
 	}
 
 	/**
-	 * Tests rendering a null inner element
+	 * Tests rendering a null inner template
 	 */
-	public function testRenderingNullInnerElement() {
+	public function testRenderingNullInnerTemplate() {
 		$dict = new Dictionary(__DIR__ . "/resources/translations/valid");
-		$template = __DIR__ . "/resources/html/nullelement.html";
+		$template = __DIR__ . "/resources/html/nulltemplate.html";
 		$render = file_get_contents(__DIR__ .
-			"/resources/html/nullelement-render.html");
+			"/resources/html/nulltemplate-render.html");
 
 		$gen = new HtmlTemplate($template, $dict);
-		$gen->addInnerElement("NULL", null);
+		$gen->addInnerTemplate("NULL", null);
 
 		$this->assertEquals($gen->render("en"), $render);
 	}
 
 	/**
-	 * Tests rendering a HTML Element Collection
+	 * Tests rendering a HTML Template Collection
 	 */
 	public function testRenderingCollections() {
 		$dict = new Dictionary(__DIR__ . "/resources/translations/valid");
