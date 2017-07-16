@@ -18,9 +18,7 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon_widgets;
-use chameleon\Dictionary;
-use chameleon\HtmlTemplate;
+namespace chameleon;
 
 
 /**

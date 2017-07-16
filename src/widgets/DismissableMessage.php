@@ -18,10 +18,8 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon_widgets;
+namespace chameleon;
 use InvalidArgumentException;
-use chameleon\Dictionary;
-use chameleon\HtmlTemplate;
 
 
 /**

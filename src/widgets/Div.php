@@ -6,8 +6,7 @@
  * Time: 10:11 PM
  */
 
-namespace chameleon_widgets;
-use chameleon\HtmlTemplate;
+namespace chameleon;
 
 
 /**
