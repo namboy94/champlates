@@ -42,7 +42,7 @@ class Container extends Div {
 								? string $id = null) {
 		$class = $fluid ? "container-fluid" : "container";
 		$this->addClass($class);
-		parent::__construct($content, [$classes], $id);
+		parent::__construct($content, $classes, $id);
 	}
 
 }

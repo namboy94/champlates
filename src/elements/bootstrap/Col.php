@@ -33,21 +33,26 @@ class Col extends Div {
 	/**
 	 * Col constructor.
 	 * @param array $content: The content inside the Div tag
-	 * @param mixed $sizes: The size definition of the col. Can be either a
-	 *                      5-part array for different sizes (XS, S, M, L, Xl),
-	 *                      or a single integer that is applied to all sizes.
+	 * @param int|array $sizes: The size definition of the col. Can be either a
+	 *                          5-part array for different sizes
+	 *                          (XS, S, M, L, Xl), or a single integer that is
+	 *                          applied to all sizes.
 	 * @param array $classes: Additional classes for the Html Element
 	 * @param string|null $id: Optional ID
 	 * @throws InvalidArgumentException: If a wrong size parameter was provided
 	 */
 	public function __construct(array $content,
-								mixed $sizes,
+								$sizes,
 								array $classes = [],
 								? string $id = null) {
 
 		// Generate Array from int
 		if (!is_array($sizes)) {
-			$sizes = [$sizes, $sizes, $sizes, $sizes, $sizes];
+			if (is_int($sizes)) {
+				$sizes = [$sizes, $sizes, $sizes, $sizes, $sizes];
+			} else {
+				throw new InvalidArgumentException("Not an int or array");
+			}
 		}
 
 		// Check if valid
