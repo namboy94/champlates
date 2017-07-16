@@ -95,4 +95,14 @@ class HtmlTemplateTest extends TestCase {
 		$this->assertEquals($render, $gen->render("en"));
 	}
 
+	/**
+	 * Tests changing a template
+	 */
+	public function testChangingTemplate() {
+		$template = new HtmlTemplate("A", null);
+		$this->assertEquals("A", $template->template);
+		$template->changeTemplate("B");
+		$this->assertEquals("B", $template->template);
+	}
+
 }

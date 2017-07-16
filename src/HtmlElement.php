@@ -104,6 +104,10 @@ class HtmlElement extends HtmlTemplate {
 			foreach ($this->classes as $class) {
 				$classString .= $class . " ";
 			}
+
+			// Remove trailing space
+			$classString = substr($classString, 0, -1);
+
 			$classString .= "\"";
 		}
 		$this->bindParam("CLASS", $classString);
