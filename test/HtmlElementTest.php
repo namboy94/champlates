@@ -1,7 +1,4 @@
 <?php
-use PHPUnit\Framework\TestCase;
-use chameleon\HtmlElement;
-
 /**
  * Copyright Hermann Krumrey <hermann@krumreyh.com> 2017
  *
@@ -20,6 +17,9 @@ use chameleon\HtmlElement;
  * You should have received a copy of the GNU General Public License
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+use PHPUnit\Framework\TestCase;
+use chameleon\HtmlElement;
 
 
 /**
