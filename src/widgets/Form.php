@@ -35,12 +35,13 @@ class Form extends HtmlTemplate {
 	 * @param string $title: The title of the form
 	 * @param string $target: The target endpoint of the form
 	 * @param array $formElements: The elements included in this form
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary,
-								string $title,
-								string $target,
-								array $formElements) {
+	public function __construct(
+		? Dictionary $dictionary,
+		string $title,
+		string $target,
+		array $formElements
+	) {
 		parent::__construct(__DIR__ . "/templates/form.html", $dictionary);
 		$this->bindParams(["TITLE" => $title, "TARGET" => $target]);
 		$this->addCollectionFromArray("ELEMENTS", $formElements);

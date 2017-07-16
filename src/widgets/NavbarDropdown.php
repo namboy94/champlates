@@ -38,11 +38,12 @@ class NavbarDropdown extends HtmlTemplate {
 	 * @param Dictionary $dictionary: The dictionary used for translation
 	 * @param string $title: The title of the Dropdown
 	 * @param array $entries: The elements inside the Dropdown
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary,
-								string $title,
-								array $entries) {
+	public function __construct(
+		? Dictionary $dictionary,
+		string $title,
+		array $entries
+	) {
 
 		$template = __DIR__ . "/templates/navbar_dropdown.html";
 		parent::__construct($template, $dictionary);

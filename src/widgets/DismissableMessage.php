@@ -37,10 +37,14 @@ class DismissableMessage extends HtmlTemplate {
 	 * @param string $title: The title of the message
 	 * @param string $body: The body of the message
 	 * @throws InvalidArgumentException: If a wrong $type was provided
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary,
-								string $type, string $title, string $body) {
+	public function __construct(
+		? Dictionary $dictionary,
+		string $type,
+		string $title,
+		string $body
+	) {
+
 		$template = __DIR__ . "/templates/dismissable_message.html";
 		parent::__construct($template, $dictionary);
 

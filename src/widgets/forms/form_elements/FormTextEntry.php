@@ -37,14 +37,15 @@ class FormTextEntry extends HtmlTemplate {
 	 * @param string $title: The title of the entry
 	 * @param string $placeholder: A placeholder for the text field
 	 * @SuppressWarnings functionMaxParameters
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary,
-								string $id,
-								string $name,
-								string $type,
-								string $title,
-								string $placeholder = "") {
+	public function __construct(
+		? Dictionary $dictionary,
+		string $id,
+		string $name,
+		string $type,
+		string $title,
+		string $placeholder = ""
+	) {
 
 		$template = __DIR__ . "/templates/form_text_entry.html";
 		parent::__construct($template, $dictionary);

@@ -36,13 +36,14 @@ class Navbar extends HtmlTemplate {
 	 * @param array $rightElements: The right elements of the navbar.
 	 * @param NavbarLogo|null $logo: The logo of the navbar. Can be left empty.
 	 * @SuppressWarnings functionMaxParameters
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary,
-								Hyperlink $title,
-								array $leftElements = [],
-								array $rightElements = [],
-								? NavbarLogo $logo = null) {
+	public function __construct(
+		? Dictionary $dictionary,
+		Hyperlink $title,
+		array $leftElements = [],
+		array $rightElements = [],
+		? NavbarLogo $logo = null
+	) {
 
 		parent::__construct(__DIR__ . "/templates/navbar.html", $dictionary);
 		$this->bindParams(["TITLE" => $title->text, "LINK" => $title->link]);

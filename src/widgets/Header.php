@@ -36,13 +36,14 @@ class Header extends HtmlTemplate {
 	 * @param array $scripts: The scripts executed at the start of the page
 	 * @param array $stylesheets: The stylesheets included in this page
 	 * @SuppressWarnings functionMaxParameters
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary,
-								string $title,
-								string $icon,
-								array $scripts = [],
-								array $stylesheets = []) {
+	public function __construct(
+		? Dictionary $dictionary,
+		string $title,
+		string $icon,
+		array $scripts = [],
+		array $stylesheets = []
+	) {
 
 		parent::__construct(__DIR__ . "/templates/header.html", $dictionary);
 		$this->bindParams(["TITLE" => $title, "ICON" => $icon]);

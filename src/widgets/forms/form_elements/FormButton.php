@@ -32,9 +32,11 @@ class FormButton extends HtmlTemplate {
 	 * FormButton constructor.
 	 * @param Dictionary $dictionary: The dictionary for translation purposes
 	 * @param string $text: The text displayed on the button
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary, string $text) {
+	public function __construct(
+		? Dictionary $dictionary,
+		string $text
+	) {
 		$template = __DIR__ . "/templates/form_button.html";
 		parent::__construct($template, $dictionary);
 		$this->bindParam("TEXT", $text);

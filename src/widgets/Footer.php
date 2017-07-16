@@ -34,12 +34,13 @@ class Footer extends Navbar {
 	 * @param Hyperlink $title: The title of the footer
 	 * @param array $leftElements: The elements on the left side of the footer
 	 * @param array $rightElements: The elements on the right side o.t. footer
-	 * @SuppressWarnings checkWhiteSpaceBefore
 	 */
-	public function __construct(? Dictionary $dictionary,
-								Hyperlink $title,
-								array $leftElements = [],
-								array $rightElements = []) {
+	public function __construct(
+		? Dictionary $dictionary,
+		Hyperlink $title,
+		array $leftElements = [],
+		array $rightElements = []
+	) {
 		parent::__construct(
 			$dictionary, $title, $leftElements, $rightElements, null);
 		$this->changeTemplate(__DIR__ . "/templates/footer.html");
