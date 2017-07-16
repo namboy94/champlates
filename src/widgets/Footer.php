@@ -42,7 +42,7 @@ class Footer extends Navbar {
 								array $rightElements = []) {
 		parent::__construct(
 			$dictionary, $title, $leftElements, $rightElements, null);
-		$this->template = __DIR__ . "/templates/footer.html";
+		$this->changeTemplate(__DIR__ . "/templates/footer.html");
 	}
 
 }

@@ -46,7 +46,7 @@ class Navbar extends HtmlTemplate {
 
 		parent::__construct(__DIR__ . "/templates/navbar.html", $dictionary);
 		$this->bindParams(["TITLE" => $title->text, "LINK" => $title->link]);
-		$this->addInnerElement("LOGO", $logo);
+		$this->addInnerTemplate("LOGO", $logo);
 		$this->addCollectionFromArray("LEFT", $leftElements);
 		$this->addCollectionFromArray("RIGHT", $rightElements);
 	}

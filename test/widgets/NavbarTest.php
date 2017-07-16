@@ -18,8 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+use chameleon\NavbarLogo;
 use PHPUnit\Framework\TestCase;
-
+use chameleon\NavbarButton;
+use chameleon\NavbarDropdown;
+use chameleon\Navbar;
+use chameleon\Hyperlink;
+use chameleon\Footer;
 
 /**
  * Class NavbarTest
@@ -27,8 +32,40 @@ use PHPUnit\Framework\TestCase;
  */
 class NavbarTest extends TestCase {
 
-	public function test() {
-		$this->assertTrue(true);
+	/**
+	 * Tests the creation of a Navbar with buttons, dropdowns and icons
+	 */
+	public function testNavbarCreation() {
+
+		$logo = new NavbarLogo("logo", "logolink");
+		$leftButton = new NavbarButton(null, new Hyperlink("L", "l"), true);
+		$rightButton = new NavbarButton(null, new Hyperlink("R", "r"), false);
+		$dropDown = new NavbarDropdown(null, "Drop", [
+			new NavbarButton(null, new Hyperlink("D", "d"), false)
+		]);
+		$navbar = new Navbar(
+			null,
+			new Hyperlink("N", "n"),
+			[$leftButton],
+			[$rightButton, $dropDown],
+			$logo
+		);
+
+		$result = file_get_contents(__DIR__ . "/results/navbar.html");
+		$this->assertEquals($result, $navbar->render(""));
+	}
+
+	/**
+	 * Tests generating a Footer
+	 */
+	public function testFooter() {
+
+		$footer = new Footer(null, new Hyperlink("F", "f"), [], []);
+		$this->assertEquals(
+			file_get_contents(__DIR__ . "/results/footer.html"),
+			$footer->render("")
+		);
+
 	}
 
 }
