@@ -22,49 +22,42 @@ namespace chameleon;
 
 
 /**
- * Class LoginForm
- * Models a simple Login Form
+ * Class ForgottenPasswordForm
+ * Models a Form for sending a password reset link
  * @package chameleon
  */
-class LoginForm extends Form {
+class ForgottenPasswordForm extends Form {
 
 	/**
-	 * LoginForm constructor.
-	 * @param Dictionary|null $dictionary: The dictionary for translating
+	 * ForgottenPasswordForm constructor.
+	 * @param Dictionary|null $dictionary: Dictionary used to translate strings
 	 * @param string $title: The title of the form
-	 * @param string $target: The target for the completed form
+	 * @param string $target: The target action for this form
+	 * @param string|null $recaptchaSiteKey: The ReCaptcha Site Key
 	 */
 	public function __construct(
 		? Dictionary $dictionary,
-		$title,
-		$target
-	) {
+		string $title, 
+		string $target, 
+		? string $recaptchaSiteKey) {
 
-		$username = new FormTextEntry(
+		$elements = [new FormTextEntry(
 			$dictionary,
-			"login_username",
-			"loginUsername",
+			"forgotpass_email",
+			"forgotpassEmail",
 			"text",
-			"@{LOGINFORM_USERNAME_TITLE}",
-			"@{LOGINFORM_USERNAME_PLACEHOLDER}"
-		);
+			"@{FORGOTPASSFORM_EMAIL_TITLE}",
+			"@{FORGOTPASSFORM_EMAIL_PLACEHOLDER}"
+		)];
 
-		$password = new FormTextEntry(
-			$dictionary,
-			"login_password",
-			"loginPassword",
-			"password",
-			"@{LOGINFORM_PASSWORD_TITLE}",
-			"@{LOGINFORM_PASSWORD_PLACEHOLDER}"
-		);
+		if ($recaptchaSiteKey !== null) {
+			array_push($elements, new FormReCaptcha($recaptchaSiteKey));
+		}
 
-		$confirm = new FormButton($dictionary, "@{LOGINFORM_CONFIRM_TITLE}");
-
-		parent::__construct(
-			$dictionary,
-			$title,
-			$target,
-			[$username, $password, $confirm]);
+		array_push($elements,
+			new FormButton($dictionary, "@{FORGOTPASSFORM_CONFIRM_TITLE}"));
+		
+		parent::__construct($dictionary, $title, $target, []);
 	}
 
 }
