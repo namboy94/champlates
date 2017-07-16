@@ -31,7 +31,7 @@ class HtmlElement extends HtmlTemplate {
 	/**
 	 * @var array: The classes of this Html Element
 	 */
-	public $classes;
+	public $classes = [];
 
 	/**
 	 * HtmlElement constructor.
@@ -49,7 +49,7 @@ class HtmlElement extends HtmlTemplate {
 
 		parent::__construct(__DIR__ . "/html_element.html", null);
 
-		$this->classes = $classes;
+		$this->addClasses($classes);
 		$this->bindParam("TAG", $tag);
 		$this->changeId($id);
 		$this->addCollectionFromArray("CONTENT", $content);
@@ -61,6 +61,16 @@ class HtmlElement extends HtmlTemplate {
 	 */
 	public function addClass(string $class) {
 		array_push($this->classes, $class);
+	}
+
+	/**
+	 * Adds multiple classes
+	 * @param array $classes: The classes to add
+	 */
+	public function addClasses(array $classes) {
+		foreach ($classes as $class) {
+			$this->addClass($class);
+		}
 	}
 
 	/**
