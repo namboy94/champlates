@@ -6,6 +6,12 @@
 
 ![Logo](resources/logo/logo.png)
 
+Champlates is a library used for translating and abstracting HTML
+in PHP. You can use champlates to create your own HTML templates in pure
+PHP using HtmlElements, or use HTML templates using the HtmlTemplate class.
+The Dictionary class makes it simple to support multiple languages using
+translation files which are just normal key value pairs in a JSON file
+
 ## Installation
 
 You can use champlates by adding the requirement
