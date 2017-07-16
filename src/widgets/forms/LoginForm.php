@@ -29,6 +29,16 @@ namespace chameleon;
 class LoginForm extends Form {
 
 	/**
+	 * @var string: The username identifier
+	 */
+	public static $username = "login_username";
+
+	/**
+	 * @var string: The password identifier
+	 */
+	public static $password = "login_password";
+
+	/**
 	 * LoginForm constructor.
 	 * @param Dictionary|null $dictionary: The dictionary for translating
 	 * @param string $title: The title of the form
@@ -41,16 +51,16 @@ class LoginForm extends Form {
 	) {
 
 		$username = new FormTextEntry($dictionary,
-			"login_username",
-			"loginUsername",
+			self::$username,
+			self::$username,
 			"text",
 			"@{LOGINFORM_USERNAME_TITLE}",
 			"@{LOGINFORM_USERNAME_PLACEHOLDER}"
 		);
 
 		$password = new FormTextEntry($dictionary,
-			"login_password",
-			"loginPassword",
+			self::$password,
+			self::$password,
 			"password",
 			"@{LOGINFORM_PASSWORD_TITLE}",
 			"@{LOGINFORM_PASSWORD_PLACEHOLDER}"

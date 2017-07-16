@@ -29,6 +29,26 @@ namespace chameleon;
 class SignupForm extends Form {
 
 	/**
+	 * @var string: Identifier for the username
+	 */
+	public static $username = "signup_username";
+
+	/**
+	 * @var string: Identifier for the email address
+	 */
+	public static $email = "signup_email";
+
+	/**
+	 * @var string: Identifier for the password
+	 */
+	public static $password = "signup_password";
+
+	/**
+	 * @var string: Identifier for the password repeat
+	 */
+	public static $passwordRepeat = "signup_password_repeat";
+
+	/**
 	 * SignupForm constructor.
 	 * @param Dictionary|null $dictionary: The dictionary used for translating
 	 * @param string $title: The title of the form
@@ -43,32 +63,32 @@ class SignupForm extends Form {
 	) {
 		
 		$username = $username = new FormTextEntry($dictionary,
-			"signup_username",
-			"signupUsername",
+			self::$username,
+			self::$username,
 			"text",
 			"@{SIGNUPFORM_USERNAME_TITLE}",
 			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}"
 		);
 		
 		$email = new FormTextEntry($dictionary,
-			"signup_email",
-			"signupEmail",
+			self::$email,
+			self::$email,
 			"text",
 			"@{SIGNUPFORM_EMAIL_TITLE}",
 			"@{SIGNUPFORM_EMAIL_PLACEHOLDER}"
 		);
 
 		$password = new FormTextEntry($dictionary,
-			"signup_password",
-			"signupPassword",
+			self::$password,
+			self::$password,
 			"password",
 			"@{SIGNUPFORM_PASSWORD_TITLE}",
 			"@{SIGNUPFORM_PASSWORD_PLACEHOLDER}"
 		);
 
 		$passwordConfirm = new FormTextEntry($dictionary,
-			"signup_password_confirm",
-			"signupPasswordConfirm",
+			self::$passwordRepeat,
+			self::$passwordRepeat,
 			"password",
 			"@{SIGNUPFORM_PASSWORD_CONFIRM_TITLE}",
 			"@{SIGNUPFORM_PASSWORD_CONFIRM_PLACEHOLDER}"
