@@ -7,7 +7,7 @@
  */
 
 namespace chameleon_widgets;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -15,7 +15,7 @@ use chameleon\HtmlElement;
  * A Simple Div element
  * @package chameleon_widgets
  */
-class Div extends HtmlElement {
+class Div extends HtmlTemplate {
 
 	/**
 	 * Div constructor.

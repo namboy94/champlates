@@ -20,7 +20,7 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -28,7 +28,7 @@ use chameleon\HtmlElement;
  * A Jumbotron with Text imposed on it and an optional image background
  * @package chameleon_widgets
  */
-class TitleJumboTron extends HtmlElement {
+class TitleJumboTron extends HtmlTemplate {
 
 	/**
 	 * TitleJumboTron constructor.

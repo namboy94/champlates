@@ -21,7 +21,7 @@
 namespace chameleon_widgets;
 use InvalidArgumentException;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -29,7 +29,7 @@ use chameleon\HtmlElement;
  * A dismissable Bootstrap message over 12 columns
  * @package chameleon_widgets
  */
-class DismissableMessage extends HtmlElement {
+class DismissableMessage extends HtmlTemplate {
 
 	/**
 	 * DismissableMessage constructor.

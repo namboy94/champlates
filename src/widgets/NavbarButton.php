@@ -20,7 +20,7 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -28,7 +28,7 @@ use chameleon\HtmlElement;
  * A Button on a Navbar
  * @package chameleon_widgets
  */
-class NavbarButton extends HtmlElement {
+class NavbarButton extends HtmlTemplate {
 
 	/**
 	 * NavbarButton constructor.

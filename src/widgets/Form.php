@@ -20,7 +20,7 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -29,7 +29,7 @@ use chameleon\HtmlElement;
  * to the target.
  * @package chameleon_widgets
  */
-class Form extends HtmlElement {
+class Form extends HtmlTemplate {
 
 	/**
 	 * Form constructor.

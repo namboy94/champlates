@@ -20,7 +20,7 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -28,7 +28,7 @@ use chameleon\HtmlElement;
  * A Simple Confirmation Button for a Form
  * @package chameleon_widgets
  */
-class FormButton extends HtmlElement {
+class FormButton extends HtmlTemplate {
 
 	/**
 	 * FormButton constructor.

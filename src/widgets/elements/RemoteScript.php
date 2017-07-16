@@ -19,7 +19,7 @@
  */
 
 namespace chameleon_widgets;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -28,7 +28,7 @@ use chameleon\HtmlElement;
  * other HTML Elements
  * @package chameleon_widgets
  */
-class RemoteScript extends HtmlElement {
+class RemoteScript extends HtmlTemplate {
 
 	/**
 	 * RemoteScript constructor.

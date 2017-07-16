@@ -19,7 +19,7 @@
  */
 
 namespace chameleon_widgets;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -27,7 +27,7 @@ use chameleon\HtmlElement;
  * Models a ReCaptcha Prompt inside a Form
  * @package chameleon_widgets
  */
-class FormReCaptcha extends HtmlElement {
+class FormReCaptcha extends HtmlTemplate {
 
 	/**
 	 * FormReCaptcha constructor.

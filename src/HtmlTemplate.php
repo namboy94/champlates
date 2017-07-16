@@ -22,15 +22,15 @@ namespace chameleon;
 
 
 /**
- * Class HtmlElement
+ * Class HtmlTemplate
  * Class that provides base methods for HTML Element object, which can
  * be rendered to HTML
  * @package chameleon
  */
-class HtmlElement {
+class HtmlTemplate {
 
 	/**
-	 * HtmlElement constructor.
+	 * HtmlTemplate constructor.
 	 * The identifiers are used to identify segments in the template that
 	 * will be filled by strings, other HtmlElements or translated words.
 	 * @param string $template : An HTML file that acts as a template for this
@@ -75,12 +75,12 @@ class HtmlElement {
 	}
 
 	/**
-	 * Adds a child HtmlElement and defines where it will be inserted
+	 * Adds a child HtmlTemplate and defines where it will be inserted
 	 * Null Elements will replace with an empty string "".
 	 * @param string $name: The identifier key for the element
-	 * @param HtmlElement|null $element: The element itself
+	 * @param HtmlTemplate|null $element: The element itself
 	 */
-	public function addInnerElement(string $name, ? HtmlElement $element) {
+	public function addInnerElement(string $name, ? HtmlTemplate $element) {
 		$this->innerElements[$name] = $element;
 	}
 
@@ -95,20 +95,20 @@ class HtmlElement {
 	}
 
 	/**
-	 * Adds a HtmlElementCollection to the HtmlElement
-	 * @param HtmlElementCollection $collection: The Collection to add
+	 * Adds a HtmlTemplateCollection to the HtmlTemplate
+	 * @param HtmlTemplateCollection $collection: The Collection to add
 	 */
-	public function addCollection(HtmlElementCollection $collection) {
+	public function addCollection(HtmlTemplateCollection $collection) {
 		$this->innerElements[$collection->name] = $collection;
 	}
 
 	/**
-	 * Creates a HtmlElementCollection from an array and adds it
+	 * Creates a HtmlTemplateCollection from an array and adds it
 	 * @param string $name: The name of the collection
 	 * @param array $elements: The elements in the collection
 	 */
 	public function addCollectionFromArray(string $name, array $elements) {
-		$collection = new HtmlElementCollection($name, $elements);
+		$collection = new HtmlTemplateCollection($name, $elements);
 		$this->addCollection($collection);
 	}
 
@@ -154,7 +154,7 @@ class HtmlElement {
 
 	/**
 	 * Generates a string which can be used by str_replace to inner
-	 * HtmlElement placeholders.
+	 * HtmlTemplate placeholders.
 	 * @param string $name: The name of the inner element key
 	 * @return string: The generated inner element replace key
 	 */

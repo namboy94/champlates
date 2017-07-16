@@ -20,14 +20,14 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 /**
  * Class Navbar
  * Models a bootstrap Navbar
  * @package chameleon_widgets
  */
-class Navbar extends HtmlElement {
+class Navbar extends HtmlTemplate {
 
 	/**
 	 * Navbar constructor.

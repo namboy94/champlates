@@ -20,14 +20,14 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 /**
  * Class FormTextEntry
  * A text input for a Form
  * @package chameleon_widgets
  */
-class FormTextEntry extends HtmlElement {
+class FormTextEntry extends HtmlTemplate {
 
 	/**
 	 * FormTextEntry constructor.

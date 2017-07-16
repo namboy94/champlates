@@ -20,7 +20,7 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -28,7 +28,7 @@ use chameleon\HtmlElement;
  * Models the Header at the start of an HTML file.
  * @package chameleon_widgets
  */
-class Header extends HtmlElement {
+class Header extends HtmlTemplate {
 
 	/**
 	 * Header constructor.

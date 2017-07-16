@@ -22,14 +22,14 @@ namespace chameleon;
 
 
 /**
- * Class HtmlElementCollection
+ * Class HtmlTemplateCollection
  * Wrapper around multiple HtmlElements that renders them in succession
  * @package chameleon
  */
-class HtmlElementCollection {
+class HtmlTemplateCollection {
 
 	/**
-	 * HtmlElementCollection constructor.
+	 * HtmlTemplateCollection constructor.
 	 * @param string $name: The name of this collection. Will be used when
 	 *                      replacing elements of the template
 	 * @param array $elements : The elements to collect

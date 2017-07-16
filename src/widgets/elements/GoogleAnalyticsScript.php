@@ -19,14 +19,14 @@
  */
 
 namespace chameleon_widgets;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 /**
  * Class GoogleAnalyticsScript
  * The Google Analytics Initialization Script
  * @package chameleon_widgets
  */
-class GoogleAnalyticsScript extends HtmlElement {
+class GoogleAnalyticsScript extends HtmlTemplate {
 
 	/**
 	 * GoogleAnalyticsScript constructor.

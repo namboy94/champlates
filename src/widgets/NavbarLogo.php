@@ -19,7 +19,7 @@
  */
 
 namespace chameleon_widgets;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -27,7 +27,7 @@ use chameleon\HtmlElement;
  * Models a Logo in a Navbar
  * @package chameleon_widgets
  */
-class NavbarLogo extends HtmlElement {
+class NavbarLogo extends HtmlTemplate {
 
 	/**
 	 * NavbarLogo constructor.

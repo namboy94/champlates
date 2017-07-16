@@ -20,7 +20,7 @@
 
 namespace chameleon_widgets;
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -28,7 +28,7 @@ use chameleon\HtmlElement;
  * Models a Dropdown menu in a Navbar
  * @package chameleon_widgets
  */
-class NavbarDropdown extends HtmlElement {
+class NavbarDropdown extends HtmlTemplate {
 
 	/**
 	 * @var array: A list of NavbarButtons

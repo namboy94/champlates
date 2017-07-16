@@ -19,7 +19,7 @@
  */
 
 namespace chameleon_widgets;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 
 
 /**
@@ -28,7 +28,7 @@ use chameleon\HtmlElement;
  * HTML Elements
  * @package chameleon_widgets
  */
-class Script extends HtmlElement {
+class Script extends HtmlTemplate {
 
 	/**
 	 * Script constructor.

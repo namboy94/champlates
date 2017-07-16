@@ -19,24 +19,24 @@
  */
 
 use chameleon\Dictionary;
-use chameleon\HtmlElement;
+use chameleon\HtmlTemplate;
 use PHPUnit\Framework\TestCase;
 
 
 /**
- * Class HtmlGeneratorTest
+ * Class HtmlTemplateTest
  * Tests the generation of various HTML Elements
  */
-class HtmlGeneratorTest extends TestCase {
+class HtmlTemplateTest extends TestCase {
 
 	/**
 	 * Tests generating an HTML Element in en and de languages
 	 */
 	public function testGeneratingHtml() {
 		$dict = new Dictionary(__DIR__ . "/resources/translations/valid");
-		$gen = new HtmlElement(__DIR__ . "/resources/html/base.html", $dict);
+		$gen = new HtmlTemplate(__DIR__ . "/resources/html/base.html", $dict);
 		$inner =
-			new HtmlElement(__DIR__ . "/resources/html/inner.html", $dict);
+			new HtmlTemplate(__DIR__ . "/resources/html/inner.html", $dict);
 
 		$gen->bindParams(
 			["PLACEHOLDER" => "<h1>This was a placeholder</h1>"]);
@@ -55,7 +55,7 @@ class HtmlGeneratorTest extends TestCase {
 	 */
 	public function testRenderingWithNullDictionary() {
 		$template = __DIR__ . "/resources/html/nulldict.html";
-		$gen = new HtmlElement($template, null);
+		$gen = new HtmlTemplate($template, null);
 		$this->assertEquals($gen->render("en"), file_get_contents($template));
 	}
 
@@ -68,7 +68,7 @@ class HtmlGeneratorTest extends TestCase {
 		$render = file_get_contents(__DIR__ .
 			"/resources/html/nullelement-render.html");
 
-		$gen = new HtmlElement($template, $dict);
+		$gen = new HtmlTemplate($template, $dict);
 		$gen->addInnerElement("NULL", null);
 
 		$this->assertEquals($gen->render("en"), $render);
@@ -84,9 +84,9 @@ class HtmlGeneratorTest extends TestCase {
 		$render = file_get_contents(__DIR__ .
 			"/resources/html/collection-render.html");
 
-		$inner = new HtmlElement($innerTemplate, $dict);
+		$inner = new HtmlTemplate($innerTemplate, $dict);
 
-		$gen = new HtmlElement($template, $dict);
+		$gen = new HtmlTemplate($template, $dict);
 		$gen->addCollectionFromArray(
 			"COLLECTION",
 			[$inner, $inner]
