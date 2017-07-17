@@ -30,6 +30,7 @@ class FormReCaptcha extends HtmlTemplate {
 
 	/**
 	 * @var string: The POST identifier for the Recaptcha Key
+	 * @SuppressWarnings checkUnusedVariables
 	 */
 	public static $recaptchaPostKey = "g-recaptcha-response";
 

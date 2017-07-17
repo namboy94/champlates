@@ -51,7 +51,7 @@ class LoginForm extends Form {
 	) {
 
 		$username =
-			new FormTextEntry( $dictionary, self::$username, self::$username,
+			new FormTextEntry($dictionary, self::$username, self::$username,
 			"text",
 			"@{LOGINFORM_USERNAME_TITLE}",
 			"@{LOGINFORM_USERNAME_PLACEHOLDER}"

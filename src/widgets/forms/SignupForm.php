@@ -69,7 +69,7 @@ class SignupForm extends Form {
 			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}"
 		);
 		
-		$email = new FormTextEntry($dictionary,	self::$email, self::$email,
+		$email = new FormTextEntry($dictionary, self::$email, self::$email,
 			"text",
 			"@{SIGNUPFORM_EMAIL_TITLE}",
 			"@{SIGNUPFORM_EMAIL_PLACEHOLDER}"
