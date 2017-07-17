@@ -46,9 +46,7 @@ class ForgottenPasswordForm extends Form {
 		string $target, 
 		? string $recaptchaSiteKey) {
 
-		$elements = [new FormTextEntry($dictionary,
-			self::$email,
-			self::$email,
+		$elements = [new FormTextEntry($dictionary, self::$email, self::$email,
 			"text",
 			"@{FORGOTPASSFORM_EMAIL_TITLE}",
 			"@{FORGOTPASSFORM_EMAIL_PLACEHOLDER}"

@@ -62,33 +62,28 @@ class SignupForm extends Form {
 		? string $recaptchaSiteKey
 	) {
 		
-		$username = $username = new FormTextEntry($dictionary,
-			self::$username,
-			self::$username,
+		$username =
+			new FormTextEntry($dictionary, self::$username, self::$username,
 			"text",
 			"@{SIGNUPFORM_USERNAME_TITLE}",
 			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}"
 		);
 		
-		$email = new FormTextEntry($dictionary,
-			self::$email,
-			self::$email,
+		$email = new FormTextEntry($dictionary,	self::$email, self::$email,
 			"text",
 			"@{SIGNUPFORM_EMAIL_TITLE}",
 			"@{SIGNUPFORM_EMAIL_PLACEHOLDER}"
 		);
 
-		$password = new FormTextEntry($dictionary,
-			self::$password,
-			self::$password,
+		$password =
+			new FormTextEntry($dictionary, self::$password, self::$password,
 			"password",
 			"@{SIGNUPFORM_PASSWORD_TITLE}",
 			"@{SIGNUPFORM_PASSWORD_PLACEHOLDER}"
 		);
 
-		$passwordConfirm = new FormTextEntry($dictionary,
-			self::$passwordRepeat,
-			self::$passwordRepeat,
+		$pwRepeat = self::$passwordRepeat;
+		$passwordConfirm = new FormTextEntry($dictionary, $pwRepeat, $pwRepeat,
 			"password",
 			"@{SIGNUPFORM_PASSWORD_CONFIRM_TITLE}",
 			"@{SIGNUPFORM_PASSWORD_CONFIRM_PLACEHOLDER}"
