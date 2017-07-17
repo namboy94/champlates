@@ -29,6 +29,11 @@ namespace chameleon;
 class FormReCaptcha extends HtmlTemplate {
 
 	/**
+	 * @var string: The POST identifier for the Recaptcha Key
+	 */
+	public static $recaptchaPostKey = "g-recaptcha-response";
+
+	/**
 	 * FormReCaptcha constructor.
 	 * @param string $siteKey: The ReCaptcha sitekey
 	 */
