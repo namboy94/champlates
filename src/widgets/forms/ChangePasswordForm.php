@@ -28,8 +28,19 @@ namespace chameleon;
  */
 class ChangePasswordForm extends Form {
 
+	/**
+	 * @var string: The old password
+	 */
 	public static $oldPassword = "old_password";
+
+	/**
+	 * @var string: The new password
+	 */
 	public static $newPassword = "new_password";
+
+	/**
+	 * @var string: The new password once more for checking
+	 */
 	public static $newPasswordRepeat = "new_password_repeat";
 
 	/**
