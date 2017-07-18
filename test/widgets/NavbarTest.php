@@ -65,6 +65,12 @@ class NavbarTest extends TestCase {
 			file_get_contents(__DIR__ . "/results/footer.html"),
 			$footer->render("")
 		);
+		$footer = new Footer(null, new Hyperlink("F", "f"), [], [], true);
+		$this->assertEquals(
+			file_get_contents(__DIR__ . "/results/fixed_footer.html"),
+			$footer->render("")
+		);
+
 
 	}
 

@@ -34,16 +34,21 @@ class Footer extends Navbar {
 	 * @param Hyperlink $title: The title of the footer
 	 * @param array $leftElements: The elements on the left side of the footer
 	 * @param array $rightElements: The elements on the right side o.t. footer
+	 * @param bool $fixed: Can be set to make the footer fixed-bottom.
+	 * @SuppressWarnings functionMaxParameters
+	 * @SuppressWarnings indentation
 	 */
 	public function __construct(
 		? Dictionary $dictionary,
 		Hyperlink $title,
 		array $leftElements = [],
-		array $rightElements = []
+		array $rightElements = [],
+		bool $fixed = false
 	) {
 		parent::__construct(
 			$dictionary, $title, $leftElements, $rightElements, null);
 		$this->changeTemplate(__DIR__ . "/templates/footer.html");
+		$this->bindParam("NAVBAR_TYPE", $fixed ? "fixed-bottom" : "default");
 	}
 
 }
