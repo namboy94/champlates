@@ -18,6 +18,7 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+use chameleon\ChangeEmailForm;
 use chameleon\ChangePasswordForm;
 use chameleon\ChangeUsernameForm;
 use PHPUnit\Framework\TestCase;
@@ -104,6 +105,16 @@ class FormTest extends TestCase {
 	public function testUsernameChangeForm() {
 		$form = new ChangeUsernameForm(null, "A", "B");
 		$result = __DIR__ . "/results/username_change_form.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests the Username Changing Form
+	 */
+	public function testEmailChangeForm() {
+		$form = new ChangeEmailForm(null, "A", "B");
+		$result = __DIR__ . "/results/email_change_form.html";
+		file_put_contents($result, $form->render("en"));
 		$this->assertEquals(file_get_contents($result), $form->render(""));
 	}
 }
