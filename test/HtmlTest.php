@@ -18,29 +18,22 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+use chameleon\Html;
+use PHPUnit\Framework\TestCase;
 
 
 /**
- * Class FormReCaptcha
- * Models a ReCaptcha Prompt inside a Form
- * @package chameleon_widgets
+ * Class HtmlTest
+ * Tests the Html class
  */
-class FormReCaptcha extends HtmlTemplate {
+class HtmlTest extends TestCase {
 
 	/**
-	 * @var string: The POST identifier for the Recaptcha Key
-	 * @SuppressWarnings checkUnusedVariables
+	 * Tests a simple render of an html snippet
 	 */
-	public static $recaptchaPostKey = "g-recaptcha-response";
-
-	/**
-	 * FormReCaptcha constructor.
-	 * @param string $siteKey: The ReCaptcha sitekey
-	 */
-	public function __construct(string $siteKey) {
-		parent::__construct(__DIR__ . "/templates/form_recaptcha.html", null);
-		$this->bindParam("SITEKEY", $siteKey);
+	public function testHtmlRendering() {
+		$html = new Html("<h1>Hello</h1>");
+		$this->assertEquals($html->render(""), "<h1>Hello</h1>");
 	}
 
 }

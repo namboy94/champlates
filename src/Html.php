@@ -22,25 +22,20 @@ namespace chameleon;
 
 
 /**
- * Class FormReCaptcha
- * Models a ReCaptcha Prompt inside a Form
- * @package chameleon_widgets
+ * Class Html
+ * A Very Simple class that allows rendering an HTML snippet
+ * @package chameleon
  */
-class FormReCaptcha extends HtmlTemplate {
+class Html extends HtmlTemplate {
 
 	/**
-	 * @var string: The POST identifier for the Recaptcha Key
-	 * @SuppressWarnings checkUnusedVariables
+	 * Html constructor.
+	 * @param string $html: The HTML to render
+	 * @param Dictionary|null $dict: Optinal dictionary
 	 */
-	public static $recaptchaPostKey = "g-recaptcha-response";
-
-	/**
-	 * FormReCaptcha constructor.
-	 * @param string $siteKey: The ReCaptcha sitekey
-	 */
-	public function __construct(string $siteKey) {
-		parent::__construct(__DIR__ . "/templates/form_recaptcha.html", null);
-		$this->bindParam("SITEKEY", $siteKey);
+	public function __construct(string $html, ? Dictionary $dict = null) {
+		parent::__construct(__DIR__ . "/templates/html.html", $dict);
+		$this->bindParam("HTML", $html);
 	}
 
 }

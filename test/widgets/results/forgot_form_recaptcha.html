@@ -1,19 +1,19 @@
-<form class="form-horizontal" action="forgot.php" method="post">
-    <legend>Forgot</legend>
-    <fieldset>
-        <div class="form-group">
-    <label for="forgotpass_email"
-           class="col-lg-5 control-label">@{FORGOTPASSFORM_EMAIL_TITLE}</label>
-    <div class="col-lg-7">
-        <input class="form-control"
-               id="forgotpass_email"
+<form class="form-horizontal champlates-form-horizontal" action="forgot.php" method="post">
+    <legend class="champlates-form-title">Forgot</legend>
+    <fieldset class="champlates-form-fieldset">
+        <div class="form-group champlates-form-text-entry-form-group">
+    <label for="forgotten_password_email"
+           class="col-lg-5 control-label champlates-form-text-entry-label">@{FORGOTPASSFORM_EMAIL_TITLE}</label>
+    <div class="col-lg-7 champlates-form-text-entry-col">
+        <input class="form-control champlates-form-text-entry-input"
+               id="forgotten_password_email"
                placeholder="@{FORGOTPASSFORM_EMAIL_PLACEHOLDER}"
                type="text"
-               name="forgotpassEmail">
+               name="forgotten_password_email" required>
     </div>
-</div><div class="g-recaptcha" data-sitekey="AAA"></div><div class="form-group">
-    <div class="col-lg-10 col-lg-offset-2">
-        <button type="submit" class="btn btn-primary">@{FORGOTPASSFORM_CONFIRM_TITLE}</button>
+</div><div class="g-recaptcha champlates-form-recaptcha" data-sitekey="AAA"></div><div class="form-group champlates-form-button-form-group">
+    <div class="col-lg-12 champlates-form-button-col">
+        <button type="submit" class="btn btn-primary champlates-form-button-button">@{FORGOTPASSFORM_CONFIRM_TITLE}</button>
     </div>
 </div>
     </fieldset>

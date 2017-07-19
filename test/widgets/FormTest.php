@@ -18,6 +18,9 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+use chameleon\ChangeEmailForm;
+use chameleon\ChangePasswordForm;
+use chameleon\ChangeUsernameForm;
 use PHPUnit\Framework\TestCase;
 use chameleon\Form;
 use chameleon\LoginForm;
@@ -84,6 +87,33 @@ class FormTest extends TestCase {
 	public function testForgottenPasswordFormWithRecaptcha() {
 		$form = new ForgottenPasswordForm(null, "Forgot", "forgot.php", "AAA");
 		$result = __DIR__ . "/results/forgot_form_recaptcha.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests the Password Changing Form
+	 */
+	public function testPasswordChangeForm() {
+		$form = new ChangePasswordForm(null, "A", "B");
+		$result = __DIR__ . "/results/password_change_form.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests the Username Changing Form
+	 */
+	public function testUsernameChangeForm() {
+		$form = new ChangeUsernameForm(null, "A", "B");
+		$result = __DIR__ . "/results/username_change_form.html";
+		$this->assertEquals(file_get_contents($result), $form->render(""));
+	}
+
+	/**
+	 * Tests the Username Changing Form
+	 */
+	public function testEmailChangeForm() {
+		$form = new ChangeEmailForm(null, "A", "B");
+		$result = __DIR__ . "/results/email_change_form.html";
 		$this->assertEquals(file_get_contents($result), $form->render(""));
 	}
 }

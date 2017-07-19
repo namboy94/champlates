@@ -29,46 +29,66 @@ namespace chameleon;
 class SignupForm extends Form {
 
 	/**
+	 * @var string: Identifier for the username
+	 */
+	public static $username = "signup_username";
+
+	/**
+	 * @var string: Identifier for the email address
+	 */
+	public static $email = "signup_email";
+
+	/**
+	 * @var string: Identifier for the password
+	 */
+	public static $password = "signup_password";
+
+	/**
+	 * @var string: Identifier for the password repeat
+	 */
+	public static $passwordRepeat = "signup_password_repeat";
+
+	/**
 	 * SignupForm constructor.
-	 * @param Dictionary|null $dictionary: The dictionary used for translating
-	 * @param string $title: The title of the form
-	 * @param string $target: The target action of the form
-	 * @param string|null $recaptchaSiteKey: The optional ReCaptcha Site key
+	 * @param Dictionary|null $dictionary : The dictionary used for translating
+	 * @param string $title : The title of the form
+	 * @param string $target : The target action of the form
+	 * @param string|null $recaptchaSiteKey : The optional ReCaptcha Site key
+	 * @param int $usernameCharacterLimit: An upper limit on how may charaters
+	 *                                     long a username may be
+	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(
 		? Dictionary $dictionary,
 		string $title,
 		string $target, 
-		? string $recaptchaSiteKey
+		? string $recaptchaSiteKey,
+		int $usernameCharacterLimit = 16
 	) {
 		
-		$username = $username = new FormTextEntry($dictionary,
-			"signup_username",
-			"signupUsername",
+		$username =
+			new FormTextEntry($dictionary, self::$username, self::$username,
 			"text",
 			"@{SIGNUPFORM_USERNAME_TITLE}",
-			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}"
+			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}",
+			$usernameCharacterLimit
 		);
 		
-		$email = new FormTextEntry($dictionary,
-			"signup_email",
-			"signupEmail",
+		$email = new FormTextEntry($dictionary, self::$email, self::$email,
 			"text",
 			"@{SIGNUPFORM_EMAIL_TITLE}",
 			"@{SIGNUPFORM_EMAIL_PLACEHOLDER}"
 		);
 
-		$password = new FormTextEntry($dictionary,
-			"signup_password",
-			"signupPassword",
+		$password =
+			new FormTextEntry($dictionary, self::$password, self::$password,
 			"password",
 			"@{SIGNUPFORM_PASSWORD_TITLE}",
 			"@{SIGNUPFORM_PASSWORD_PLACEHOLDER}"
 		);
 
-		$passwordConfirm = new FormTextEntry($dictionary,
-			"signup_password_confirm",
-			"signupPasswordConfirm",
+		$pwRepeat = self::$passwordRepeat;
+		$passwordConfirm = new FormTextEntry($dictionary, $pwRepeat, $pwRepeat,
 			"password",
 			"@{SIGNUPFORM_PASSWORD_CONFIRM_TITLE}",
 			"@{SIGNUPFORM_PASSWORD_CONFIRM_PLACEHOLDER}"

@@ -29,6 +29,11 @@ namespace chameleon;
 class ForgottenPasswordForm extends Form {
 
 	/**
+	 * @var string: Identifier for the email address
+	 */
+	public static $email = "forgotten_password_email";
+
+	/**
 	 * ForgottenPasswordForm constructor.
 	 * @param Dictionary|null $dictionary: Dictionary used to translate strings
 	 * @param string $title: The title of the form
@@ -41,9 +46,7 @@ class ForgottenPasswordForm extends Form {
 		string $target, 
 		? string $recaptchaSiteKey) {
 
-		$elements = [new FormTextEntry($dictionary,
-			"forgotpass_email",
-			"forgotpassEmail",
+		$elements = [new FormTextEntry($dictionary, self::$email, self::$email,
 			"text",
 			"@{FORGOTPASSFORM_EMAIL_TITLE}",
 			"@{FORGOTPASSFORM_EMAIL_PLACEHOLDER}"
