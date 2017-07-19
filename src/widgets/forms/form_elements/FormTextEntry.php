@@ -36,6 +36,8 @@ class FormTextEntry extends HtmlTemplate {
 	 * @param string $type: The type of the entry data
 	 * @param string $title: The title of the entry
 	 * @param string $placeholder: A placeholder for the text field
+	 * @param int|null $limit: An upper limit on the characters that may be
+	 *                         entered. May be left at null to disable limits.
 	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(
@@ -44,17 +46,21 @@ class FormTextEntry extends HtmlTemplate {
 		string $name,
 		string $type,
 		string $title,
-		string $placeholder = ""
+		string $placeholder = "",
+		int $limit = null
 	) {
 
 		$template = __DIR__ . "/templates/form_text_entry.html";
 		parent::__construct($template, $dictionary);
+
+		$maxLength = ($limit === null) ? "" : " maxLength=\"" . $limit . "\"";
 		$this->bindParams([
 			"ID" => $id,
 			"NAME" => $name,
 			"TYPE" => $type,
 			"TITLE" => $title,
-			"PLACEHOLDER" => $placeholder
+			"PLACEHOLDER" => $placeholder,
+			"MAXLENGTH" => $maxLength
 		]);
 	}
 }

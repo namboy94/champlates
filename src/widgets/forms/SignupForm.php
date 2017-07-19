@@ -50,23 +50,28 @@ class SignupForm extends Form {
 
 	/**
 	 * SignupForm constructor.
-	 * @param Dictionary|null $dictionary: The dictionary used for translating
-	 * @param string $title: The title of the form
-	 * @param string $target: The target action of the form
-	 * @param string|null $recaptchaSiteKey: The optional ReCaptcha Site key
+	 * @param Dictionary|null $dictionary : The dictionary used for translating
+	 * @param string $title : The title of the form
+	 * @param string $target : The target action of the form
+	 * @param string|null $recaptchaSiteKey : The optional ReCaptcha Site key
+	 * @param int $usernameCharacterLimit: An upper limit on how may charaters
+	 *                                     long a username may be
+	 * @SuppressWarnings functionMaxParameters
 	 */
 	public function __construct(
 		? Dictionary $dictionary,
 		string $title,
 		string $target, 
-		? string $recaptchaSiteKey
+		? string $recaptchaSiteKey,
+		int $usernameCharacterLimit = 16
 	) {
 		
 		$username =
 			new FormTextEntry($dictionary, self::$username, self::$username,
 			"text",
 			"@{SIGNUPFORM_USERNAME_TITLE}",
-			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}"
+			"@{SIGNUPFORM_USERNAME_PLACEHOLDER}",
+			$usernameCharacterLimit
 		);
 		
 		$email = new FormTextEntry($dictionary, self::$email, self::$email,

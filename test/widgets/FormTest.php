@@ -114,7 +114,6 @@ class FormTest extends TestCase {
 	public function testEmailChangeForm() {
 		$form = new ChangeEmailForm(null, "A", "B");
 		$result = __DIR__ . "/results/email_change_form.html";
-		file_put_contents($result, $form->render("en"));
 		$this->assertEquals(file_get_contents($result), $form->render(""));
 	}
 }
