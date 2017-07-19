@@ -1,2 +1,10 @@
+V 1.1.0:
+  - Added Html class
+  - Added various identifiers for form elements
+  - Added Password, Email and Username changing forms
+  - Added custom CSS classes
+  - Extended Footer functionality
+  - Made form inputs required
+  - Added optional character limits to form entries
 V 1.0.0:
   - Initial Functionality Completed
