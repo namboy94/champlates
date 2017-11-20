@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class HtmlTemplateCollection
  * Wrapper around multiple HtmlElements that renders them in succession
- * @package chameleon
+ * @package champlates
  */
 class HtmlTemplateCollection {
 

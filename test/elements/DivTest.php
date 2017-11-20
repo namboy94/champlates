@@ -19,7 +19,7 @@
  */
 
 use PHPUnit\Framework\TestCase;
-use chameleon\Div;
+use champlates\Div;
 
 
 /**

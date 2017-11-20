@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class GoogleAnalyticsScript
  * The Google Analytics Initialization Script
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class GoogleAnalyticsScript extends HtmlTemplate {
 

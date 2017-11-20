@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class ChangePasswordForm
  * Form that allows a user to change their password
- * @package chameleon
+ * @package champlates
  */
 class ChangePasswordForm extends Form {
 

@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class TitleJumboTron
  * A Jumbotron with Text imposed on it and an optional image background
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class TitleJumboTron extends HtmlTemplate {
 

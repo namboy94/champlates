@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class SignupForm
  * A form that enables signing up with a username, password and email address.
- * @package chameleon
+ * @package champlates
  */
 class SignupForm extends Form {
 

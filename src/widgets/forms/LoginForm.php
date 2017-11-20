@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class LoginForm
  * Models a simple Login Form
- * @package chameleon
+ * @package champlates
  */
 class LoginForm extends Form {
 

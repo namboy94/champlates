@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Script
  * Light wrapper around a JavaScript script for integration with other
  * HTML Elements
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class Script extends HtmlTemplate {
 

@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class BootstrapScript
  * The Bootstrap Javascript Component
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class BootstrapScript extends RemoteScript {
 

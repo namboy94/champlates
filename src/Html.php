@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Html
  * A Very Simple class that allows rendering an HTML snippet
- * @package chameleon
+ * @package champlates
  */
 class Html extends HtmlTemplate {
 

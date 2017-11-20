@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class HtmlElement
  * A simple PHP representation of an HTML element
- * @package chameleon
+ * @package champlates
  */
 class HtmlElement extends HtmlTemplate {
 

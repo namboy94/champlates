@@ -18,7 +18,7 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use chameleon\Html;
+use champlates\Html;
 use PHPUnit\Framework\TestCase;
 
 

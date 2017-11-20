@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Form
  * A Form containing various Form elements. The form will perform a POST
  * to the target.
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class Form extends HtmlTemplate {
 

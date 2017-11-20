@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use chameleon\Script;
+use champlates\Script;
 use PHPUnit\Framework\TestCase;
-use chameleon\Header;
-use chameleon\BootstrapScript;
-use chameleon\BootstrapStyleSheet;
-use chameleon\GoogleAnalyticsScript;
-use chameleon\ReCaptchaScript;
-use chameleon\GoogleFont;
+use champlates\Header;
+use champlates\BootstrapScript;
+use champlates\BootstrapStyleSheet;
+use champlates\GoogleAnalyticsScript;
+use champlates\ReCaptchaScript;
+use champlates\GoogleFont;
 
 /**
  * Class HeaderTest

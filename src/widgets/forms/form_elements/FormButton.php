@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class FormButton
  * A Simple Confirmation Button for a Form
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class FormButton extends HtmlTemplate {
 

@@ -19,13 +19,13 @@
  */
 
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Div
  * A simple 'div' HTML Element
- * @package chameleon
+ * @package champlates
  */
 class Div extends HtmlElement {
 
