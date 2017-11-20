@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class NavbarLogo
  * Models a Logo in a Navbar
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class NavbarLogo extends HtmlTemplate {
 

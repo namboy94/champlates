@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon_bootstrap;
-use chameleon\Div;
+namespace champlates_bootstrap;
+use champlates\Div;
 
 
 /**
  * Class Row
  * A Bootstrap Row
- * @package chameleon_bootstrap
+ * @package champlates_bootstrap
  */
 class Row extends Div {
 

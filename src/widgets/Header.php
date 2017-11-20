@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Header
  * Models the Header at the start of an HTML file.
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class Header extends HtmlTemplate {
 

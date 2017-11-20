@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class ChangeEmailForm
  * Form that allows a user to change their email address
- * @package chameleon
+ * @package champlates
  */
 class ChangeEmailForm extends Form {
 

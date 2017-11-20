@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Footer
  * A Navbar that acts as a footer
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class Footer extends Navbar {
 

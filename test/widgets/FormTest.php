@@ -18,15 +18,15 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use chameleon\ChangeEmailForm;
-use chameleon\ChangePasswordForm;
-use chameleon\ChangeUsernameForm;
+use champlates\ChangeEmailForm;
+use champlates\ChangePasswordForm;
+use champlates\ChangeUsernameForm;
 use PHPUnit\Framework\TestCase;
-use chameleon\Form;
-use chameleon\LoginForm;
-use chameleon\SignupForm;
-use chameleon\ForgottenPasswordForm;
-use chameleon\FormButton;
+use champlates\Form;
+use champlates\LoginForm;
+use champlates\SignupForm;
+use champlates\ForgottenPasswordForm;
+use champlates\FormButton;
 
 
 /**

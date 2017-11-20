@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class BootstrapStyleSheet
  * Integrates the Bootstrap stylesheet
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class BootstrapStyleSheet extends Stylesheet {
 

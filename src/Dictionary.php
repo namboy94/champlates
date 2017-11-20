@@ -6,7 +6,7 @@
  * Time: 3:00 PM
  */
 
-namespace chameleon;
+namespace champlates;
 use InvalidArgumentException;
 
 
@@ -24,7 +24,7 @@ use InvalidArgumentException;
  * The JSON files must end in .json and start with the language identifier
  * followed by a hyphen. Each file can only contain data for a single language
  *
- * @package chameleon
+ * @package champlates
  */
 class Dictionary {
 

@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Hyperlink
  * Models a simple Hyperlink
- * @package chameleon
+ * @package champlates
  */
 class Hyperlink {
 

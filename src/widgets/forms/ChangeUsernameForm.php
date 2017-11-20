@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class ChangeUsernameForm
  * Form that allows a user to change their username
- * @package chameleon
+ * @package champlates
  */
 class ChangeUsernameForm extends Form {
 

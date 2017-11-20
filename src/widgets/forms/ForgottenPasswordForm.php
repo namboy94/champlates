@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class ForgottenPasswordForm
  * Models a Form for sending a password reset link
- * @package chameleon
+ * @package champlates
  */
 class ForgottenPasswordForm extends Form {
 

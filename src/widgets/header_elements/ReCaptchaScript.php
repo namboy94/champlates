@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class ReCaptchaScript
  * Script that integrates Google's FormReCaptcha
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class ReCaptchaScript extends RemoteScript {
 

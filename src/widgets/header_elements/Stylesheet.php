@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class Stylesheet
  * Light wrapper around a stylesheet for better integration with other
  * HTML Elements
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class Stylesheet extends HtmlTemplate {
 

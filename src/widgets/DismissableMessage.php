@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 use InvalidArgumentException;
 
 
 /**
  * Class DismissableMessage
  * A dismissable Bootstrap message over 12 columns
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class DismissableMessage extends HtmlTemplate {
 

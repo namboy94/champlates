@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon_bootstrap;
-use chameleon\Div;
+namespace champlates_bootstrap;
+use champlates\Div;
 
 
 /**
  * Class Container
  * A Bootstrap Container. Can also be declared as a fluid container
- * @package chameleon_bootstrap
+ * @package champlates_bootstrap
  */
 class Container extends Div {
 

@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class FormReCaptcha
  * Models a ReCaptcha Prompt inside a Form
- * @package chameleon_widgets
+ * @package champlates_widgets
  */
 class FormReCaptcha extends HtmlTemplate {
 

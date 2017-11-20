@@ -18,13 +18,13 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use chameleon\NavbarLogo;
+use champlates\NavbarLogo;
 use PHPUnit\Framework\TestCase;
-use chameleon\NavbarButton;
-use chameleon\NavbarDropdown;
-use chameleon\Navbar;
-use chameleon\Hyperlink;
-use chameleon\Footer;
+use champlates\NavbarButton;
+use champlates\NavbarDropdown;
+use champlates\Navbar;
+use champlates\Hyperlink;
+use champlates\Footer;
 
 /**
  * Class NavbarTest

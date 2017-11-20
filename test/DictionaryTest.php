@@ -18,7 +18,7 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-use chameleon\Dictionary;
+use champlates\Dictionary;
 use PHPUnit\Framework\TestCase;
 
 

@@ -18,14 +18,14 @@
  * along with champlates.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace chameleon;
+namespace champlates;
 
 
 /**
  * Class HtmlTemplate
  * Class that provides base methods for HTML Template objects, which can
  * be rendered to HTML
- * @package chameleon
+ * @package champlates
  */
 class HtmlTemplate {
 
