@@ -19,7 +19,7 @@ github_mirror:
 lint:
   stage: test
   tags:
-    - php
+    - php-7.1
     - composer
   script:
     - composer update
@@ -29,13 +29,13 @@ unittest:
   stage: test
   tags:
     - composer
-    - php
-    - coverage
+    - php-7.1
+    - progstats
   script:
     - echo $TEST_DB_PASS > DB_PASS.secret
     - composer update
     - ./unittest.sh
-    - rsync -av coverage/ /var/www/coverage.namibsun.net/public_html/champlates --delete-before
+    - rsync -av coverage/ /var/www/progstats.namibsun.net/public/coverage/champlates --delete-before
     - rm DB_PASS.secret
 
 upload_release_to_github:
@@ -44,7 +44,6 @@ upload_release_to_github:
     - master
   tags:
     - python
-    - linux
   script:
     - mkdir -p artifacts
     - git clone https://gitlab.namibsun.net/namboy94/ci-scripts.git
@@ -58,7 +57,6 @@ upload_release_to_gitlab:
     - master
   tags:
     - python
-    - linux
   script:
     - mkdir -p artifacts
     - git clone https://gitlab.namibsun.net/namboy94/ci-scripts.git
