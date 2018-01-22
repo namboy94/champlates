@@ -1,7 +1,7 @@
 {
   "name": "namboy94/champlates",
   "type": "library",
-  "description": "Templating for PHP 7.1+",
+  "description": "Templating for PHP 7+",
   "keywords": ["templates", "html"],
   "homepage": "https://gitlab.namibsun.net/namboy94/champlates",
   "license": "GPLv3",
@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-    "php": ">=7.1.0"
+    "php": ">=7.0.0"
   },
   "require-dev": {
     "phpunit/phpunit": "*",
