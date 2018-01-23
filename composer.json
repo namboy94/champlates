@@ -4,7 +4,7 @@
   "description": "Templating for PHP 7.1+",
   "keywords": ["templates", "html"],
   "homepage": "https://gitlab.namibsun.net/namboy94/champlates",
-  "license": "GPLv3",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Hermann Krumrey",
