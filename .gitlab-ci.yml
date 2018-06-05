@@ -1,63 +1,45 @@
 stages:
-  - mirror
   - test
+  - stats
   - release
-  - deploy
 
-github_mirror:
-  stage: mirror
-  tags:
-    - github_namboy94_push
-  script:
-    - git checkout master
-    - git pull
-    - git push git@github.com:namboy94/champlates.git master -f
-    - git checkout develop
-    - git pull
-    - git push git@github.com:namboy94/champlates.git develop -f
-
-lint:
+stylecheck:
   stage: test
   tags:
-    - php-7.1
-    - composer
+    - python3
+    - php
   script:
-    - composer update
-    - ./lint.sh
+    - python3 -m venv virtual && source virtual/bin/activate && pip install ci-scripts
+    - composer-checkstyle
 
 unittest:
   stage: test
   tags:
-    - composer
-    - php-7.1
+    - python3
+    - progstats
+    - php
+    - xdebug
+  script:
+    - python3 -m venv virtual && source virtual/bin/activate && pip install ci-scripts
+    - composer-unittest
+
+release_upload:
+  stage: release
+  only:
+    - master
+  tags:
+    - python3
+  script:
+    - python3 -m venv virtual && source virtual/bin/activate && pip install ci-scripts
+    - github-release-upload $(cat version) "$(changelog-reader)"
+    - gitlab-release-upload $(cat version) "$(changelog-reader)"
+
+gitstats:
+  stage: stats
+  tags:
+    - python3
+    - gitstats
     - progstats
   script:
-    - composer update
-    - ./unittest.sh
-    - rsync -av coverage/ /var/www/progstats.namibsun.net/public/coverage/champlates --delete-before
-
-upload_release_to_github:
-  stage: release
-  only:
-    - master
-  tags:
-    - python
-  script:
-    - mkdir -p artifacts
-    - git clone https://gitlab.namibsun.net/namboy94/ci-scripts.git
-    - python ci-scripts/src/changelog-reader/changelog-reader.py -c CHANGELOG -d current_changelog
-    - python ci-scripts/src/github-release-uploader/github-release-uploader.py namboy94 champlates $GITHUB_ACCESS_TOKEN
-      $(cat version) current_changelog artifacts -b master
-
-upload_release_to_gitlab:
-  stage: release
-  only:
-    - master
-  tags:
-    - python
-  script:
-    - mkdir -p artifacts
-    - git clone https://gitlab.namibsun.net/namboy94/ci-scripts.git
-    - python ci-scripts/src/changelog-reader/changelog-reader.py -c CHANGELOG -d  current_changelog
-    - python ci-scripts/src/gitlab-release-uploader/gitlab-release-uploader.py namboy94 champlates $GITLAB_ACCESS_TOKEN
-      $(cat version) current_changelog artifacts -b master -u https://gitlab.namibsun.net
+    - python3 -m venv virtual && source virtual/bin/activate && pip install ci-scripts
+    - gitstats-gen
