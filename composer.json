@@ -18,7 +18,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "*",
-    "phpcheckstyle/phpcheckstyle": "*"
+    "phpcheckstyle/phpcheckstyle": "*",
+    "phpdocumentor/phpdocumentor": "*"
   },
   "autoload": {
     "classmap": [
