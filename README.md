@@ -2,7 +2,7 @@
 
 |master|develop|
 |:----:|:-----:|
-|[![build status](https://gitlab.namibsun.net/php/champlates/champlates/badges/master/build.svg)](https://gitlab.namibsun.net/php/champlates/champlates/commits/master)|[![build status](https://gitlab.namibsun.net/php/champlates/champlates/badges/develop/build.svg)](https://gitlab.namibsun.net/php/champlates/champlates/commits/develop)|
+|[![build status](https://gitlab.namibsun.net/namibsun/php/champlates/badges/master/build.svg)](https://gitlab.namibsun.net/namibsun/php/champlates/commits/master)|[![build status](https://gitlab.namibsun.net/namibsun/php/champlates/badges/develop/build.svg)](https://gitlab.namibsun.net/namibsun/php/champlates/commits/develop)|
 
 ![Logo](resources/logo/logo-readme.png)
 
@@ -30,7 +30,7 @@ All classes and methods are documented using DocBlock comments.
 
 * [Changelog](CHANGELOG)
 * [License (GPLv3)](LICENSE)
-* [Gitlab](https://gitlab.namibsun.net/php/champlates/champlates)
+* [Gitlab](https://gitlab.namibsun.net/namibsun/php/champlates)
 * [Github](https://github.com/namboy94/champlates)
 * [Progstats](https://progstats.namibsun.net/projects/champlates)
 * [Packagist Page](https://packagist.org/packages/namboy94/champlates)
